@@ -1,0 +1,208 @@
+
+{% extends 'base.html' %}
+{% load static %}
+ {% load crispy_forms_tags %}
+ {% load cloudinary %}
+
+ <!-- Title -->
+<title>{% block title %}  Registration Form  {% endblock %}-  Embold Lab || Empowering Your Digital Journey: Turning Ideas into Successful Enterprises with Product Design & Development</title>
+
+{% block head %}
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&display=swap" />
+  	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" />
+{% endblock %}
+
+{% block content %}
+
+
+
+
+<main>
+  <div class="form-container container">
+    <h1>Embold Learn & Earn Tech Bootcamp Cohort 3.0</h1>
+    <p>"Earn up to $50 - $150 Monthly while Learning Practical tech skills with
+    Embold. Participant are to pay the sum of N5,000 for certification,
+    portfolio development, mentorship, accelerator scheme, design/coding
+    challenge, CV revamping, internship opportunities and job search."
+    </p>
+    <h2>PAYMENT VALIDATE ACCESS TO THE BOOTCAMP </h2>
+    <p>Only applicants who made payment would be reached out via email to join
+    the bootcamp.</p>
+ <form method="POST" enctype="multipart/form-data" id="registrationForm">
+    {% csrf_token %}
+
+    <!-- Surname and First Name -->
+    <label for="id_name">Surname and First Name <span class="req">*</span></label>
+    {{ form.name }}
+
+    <!-- Email -->
+    <label for="id_email">Email <span class="req">*</span></label>
+    {{ form.email }}
+
+    <!-- WhatsApp Phone Number -->
+    <label for="id_phone">WhatsApp Phone Number <span class="req">*</span></label>
+    {{ form.phone }}
+
+    <!-- Do you have access to a laptop? -->
+    <label>Do you have access to a laptop? <span class="req">*</span></label>
+    {{ form.laptop_access }}
+
+    <!-- Program Selection -->
+    <label for="id_program">What are you applying for? <span class="req">*</span></label>
+    {{ form.program }}
+
+    <!-- Courses: Bootcamp, Accelerator, Masterclass -->
+    <div id="courseSelection">
+        <label>Select Courses:</label>
+        <select id="courseDropdown" name="course">
+            <!-- This dropdown will be populated based on the selected program -->
+            {% for course in courses %}
+                <option value="{{ course.id }}">{{ course.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <!-- What do you see yourself as? -->
+    <label for="id_level">What do you see yourself as? <span class="req">*</span></label>
+    {{ form.level }}
+
+    <!-- How did you hear about us? -->
+    <label for="id_source">How did you hear about us? <span class="req">*</span></label>
+    {{ form.source }}
+
+    <!-- Location -->
+    <label for="id_location">Location <span class="req">*</span></label>
+    {{ form.location }}
+
+    <!-- Referral Code -->
+    <label for="id_referral_code">Referral Code</label>
+    {{ form.referral_code }}
+
+    <!-- Submit Button -->
+    <button type="submit" onclick="payWithPaystack()" class="btn">Register and Make Payment</button>
+</form>
+
+</div>
+
+<script>
+document.getElementById('program').addEventListener('change', function() {
+    const bootcampCourses = document.getElementById('bootcampCourses');
+    const acceleratorCourses = document.getElementById('acceleratorCourses');
+    const masterclassCourses = document.getElementById('masterclassCourses');
+
+    bootcampCourses.style.display = 'none';
+    acceleratorCourses.style.display = 'none';
+    masterclassCourses.style.display = 'none';
+
+    if (this.value === 'Bootcamp') {
+        bootcampCourses.style.display = 'block';
+    } else if (this.value === 'Accelerator') {
+        acceleratorCourses.style.display = 'block';
+    } else if (this.value === 'Masterclass') {
+        masterclassCourses.style.display = 'block';
+    }
+});
+
+
+
+
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Bootstrap's custom validation logic
+        (function () {
+            'use strict'
+            var forms = document.querySelectorAll('.needs-validation')
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
+
+
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            const pledgeDedication = document.getElementById('id_pledge_dedication');
+            const pledgeTerms = document.getElementById('id_pledge_terms');
+            const email = document.getElementById('id_email');
+            const phone = document.getElementById('id_phone');
+            const amount = 5000;
+
+            if (!pledgeDedication.checked || !pledgeTerms.checked) {
+                event.preventDefault(); // Prevent form submission
+                if (!pledgeDedication.checked) {
+                    pledgeDedication.closest('.form-group').classList.add('was-validated');
+                }
+                if (!pledgeTerms.checked) {
+                    pledgeTerms.closest('.form-group').classList.add('was-validated');
+                }
+            }
+
+        });
+    </script>
+
+    <!-- Scripts -->
+ <!-- Include Paystack inline script -->
+
+
+<script src="https://js.paystack.co/v1/inline.js"></script>
+
+<script>
+    const paymentForm = document.getElementById('registrationForm');
+
+    paymentForm.addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        // Get form data
+        let email = document.getElementById("id_email").value;
+        let amount = document.getElementById("id_bootcamp_price").value;  // Replace with your dynamic amount logic
+        let firstName = document.getElementById("id_first_name").value;
+        let phone = document.getElementById("id_phone").value;
+        const public= '{{myKey}}';
+
+
+        // Initiate payment with Paystack
+        let handler = PaystackPop.setup({
+            key: public, // Replace with your public key
+            email: email,
+            amount: amount * 100,  // Paystack amount is in kobo (100 kobo = 1 Naira)
+            currency: 'NGN',
+            ref: '' + Math.floor((Math.random() * 1000000000) + 1), // Unique reference, replace with your logic
+            onClose: function(){
+                alert('Payment window closed.');
+            },
+
+            callback: function(response){
+                let referenceField = document.createElement("input");
+                referenceField.setAttribute("type", "hidden");
+                referenceField.setAttribute("name", "transaction_reference");
+                referenceField.setAttribute("value", response.reference);
+                paymentForm.appendChild(referenceField);
+
+                paymentForm.submit(); // Submit the form after payment
+
+            }
+        });
+
+        handler.openIframe();
+    }, false);
+</script>
+
+</main>
+
+
+
+{% endblock %}

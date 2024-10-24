@@ -1,0 +1,227 @@
+
+{% extends 'base.html' %}
+{% load cloudinary %}
+
+ <!-- Title -->
+<title>{% block title %} Bootcamp List {% endblock %}- Embold Design || Empowering Your Digital Journey: Turning Ideas into Successful Enterprises with Product Design & Development</title>
+{% load static %}
+{% block content %}
+ 
+  <!-- ========== MAIN CONTENT ========== -->
+  <main id="content" role="main">
+    <!-- Banner -->
+    <div class="container content-space-t-1 mt-7">
+      <div class="bg-primary rounded-2" style="background: url(https://htmlstream.com/preview/front-v4.3.1/assets/svg/illustrations/master-adobe-ai-book.svg) right bottom no-repeat;">
+        <div class="w-lg-50 py-8 px-6 text-center mx-md-auto">
+            <h1 class="display-4 text-white">All Courses</h1>
+          <!-- <p class="lead text-white mb-0">Embold design bootcamps covers different  <span class="fw-semibold">professsional</span> categories.</p> -->
+        </div>
+      </div>
+    </div>
+    <!-- End Banner -->
+
+    <!-- Card List -->
+    <div class="container content-space-2 content-space-b-lg-3">
+      <div class="row">
+        <div class="col-lg-3 mb-5 mb-lg-0">
+          <!-- Navbar -->
+          <div class="navbar-expand-lg">
+            <!-- Navbar Toggle -->
+            <div class="d-grid">
+              <button type="button" class="navbar-toggler btn btn-white rounded mb-3" data-bs-toggle="collapse" data-bs-target="#navbarVerticalNavMenu" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navbarVerticalNavMenu">
+                <span class="d-flex justify-content-between align-items-center">
+                  <span class="text-dark">Menu</span>
+
+                  <span class="navbar-toggler-default">
+                    <i class="bi-list"></i>
+                  </span>
+
+                  <span class="navbar-toggler-toggled">
+                    <i class="bi-x"></i>
+                  </span>
+                </span>
+              </button>
+            </div>
+            <!-- End Navbar Toggle -->
+
+            <!-- Navbar Collapse -->
+            <div id="navbarVerticalNavMenu" class="collapse navbar-collapse">
+              <div class="d-grid gap-4 flex-grow-1">
+                
+                <div class="nav nav-sm nav-pills nav-vertical">
+                  <h5 class="nav-subtitle mt-5">All Courses</h5>
+                    {% for category, bootcamps in categorized_bootcamps %}
+                  {% if category.title == "DESIGN" %}
+                   
+                 
+              
+                        {% for bootcamp in bootcamps %}
+                            <a  class="nav-link" href="{{ bootcamp.get_absolute_url }}" style="text-transform: uppercase;">{{ bootcamp.title }}</a>
+                         {% empty %}
+                            <span class="dropdown-item">No bootcamps available</span>
+                      {% endfor %}
+                  {% endif %}
+               {% endfor %}
+     
+                </div>
+
+           
+             
+
+
+                
+              </div>
+            </div>
+            <!-- End Navbar Collapse -->
+          </div>
+          <!-- End Navbar -->
+        </div>
+        <!-- End Col -->
+
+        <div class="col-lg-9">
+          <!-- Filter -->
+          <div class="border-bottom pb-3 mb-5">
+            <div class="row justify-content-md-start align-items-md-center">
+              <div class="col-md-4 mb-3 mb-md-0">
+                <h5 class="mb-0"><span class="text-dark fw-semibold">Courses we are offering</span>  </h5>
+              </div>
+              <!-- End Col -->
+
+              <div class="col-md-8 text-md-end">
+                <div class="row gx-2">
+
+
+              
+
+                  <div class="col-auto mb-2">
+                    <!-- Select -->
+                    <!-- <select class="form-select form-select-sm">
+                      <option value="beginner" selected>Beginner</option>
+                      <option value="intermediate">Intermediate</option>
+                      <option value="advanced">Advanced</option>
+                    </select> -->
+                    <!-- End Select -->
+                  </div>
+                  <!-- End Col -->
+                </div>
+                <!-- End Row -->
+              </div>
+              <!-- End Col -->
+            </div>
+            <!-- End Row -->
+          </div>
+          <!-- End Filter -->
+
+          <div class="d-grid gap-5 mb-10">
+
+
+                  {% for bootcamp in bootcamps %}
+            
+              
+      
+            <!-- Card -->
+            <a class="card card-flush" href="{{ bootcamp.get_absolute_url }}">
+              <div class="row align-items-md-center">
+                <div class="col-sm-5 mb-3 mb-sm-0">
+                  <!-- Card Pinned -->
+                  <div class="card-pinned">
+                    <img class="card-img" src="{{ bootcamp.image.url }}" alt="{{ bootcamp.title }}">
+
+
+                    <div class="card-pinned-bottom-start">
+                      <div class="d-flex align-items-center flex-wrap">
+                        <!-- Rating -->
+            
+                        <!-- End Rating -->
+                        <div class="ms-1">
+                            <small class="badge bg-custom rounded-pill">Starts : {{ bootcamp.start_date }}</small>
+                        
+                          <span class="text-white-70 small"></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- End Card Pinned -->
+                </div>
+                <!-- End Col -->
+
+                <div class="col-sm-7 text-dark"">
+                  <div class="row mb-3">
+                    <div class="col">
+                      <!-- <small class="card-subtitle text-body">{{ bootcamp.category }} Bootcamp</small> -->
+                      <h3 class="card-title text-inherit">{{ bootcamp.title }}</h3>
+                    </div>
+                    <!-- End Col -->
+
+                    <div class="col-auto">
+                      <div class="text-end">
+                        <p class="text-muted small mb-0"><del>₦{{ bootcamp.former_price|floatformat:0 }}</del></p>
+                        <h5 class="card-title text-primary">₦{{ bootcamp.price|floatformat:0 }}</h5>
+                      </div>
+                    </div>
+                    <!-- End Col -->
+                  </div>
+                  <!-- End Row -->
+
+                  <!-- End Row -->
+
+                  <p class="card-text text-body text-dark" >  {{ bootcamp.intro|safe|truncatechars:1800 }}</p>
+                     <small class="badge bg-primary rounded-pill">95% Free Scholarship</small>
+                </div>
+                <!-- End Col -->
+              </div>
+              <!-- End Row -->
+            </a>
+            <!-- End Card -->
+  {% endfor %}
+
+
+           
+    
+          </div>
+
+          <!-- Pagination -->
+          <!-- <div class="d-flex justify-content-between align-items-center">
+            <small class="d-none d-sm-inline-block text-body">Page 1 out of 6</small>
+
+            <nav aria-label="Page navigation">
+              <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                  <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">
+                      <i class="bi-chevron-double-left small"></i>
+                    </span>
+                  </a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item disabled"><a class="page-link" href="#">...</a></li>
+                <li class="page-item"><a class="page-link" href="#">5</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">
+                      <i class="bi-chevron-double-right small"></i>
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div> -->
+          <!-- End Pagination -->
+        </div>
+        <!-- End Col -->
+      </div>
+      <!-- End Row -->
+    </div>
+    <!-- End Card List -->
+
+    <!-- CTA -->
+
+    <!-- End CTA -->
+  </main> 
+  <!-- ========== END MAIN CONTENT ========== -->
+
+
+
+{% endblock %}

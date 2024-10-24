@@ -1,0 +1,258 @@
+
+{% extends 'base.html' %}
+ <!-- Title -->
+<title>{% block title %} About us {% endblock %}- Embold Design || Empowering Your Digital Journey: Turning Ideas into Successful Enterprises with Product Design & Development</title>
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&display=swap" />
+  	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" />
+        <!-- Bootstrap CSS v5.2.1 -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+            crossorigin="anonymous"
+        />
+
+    <link rel="stylesheet" href="{% static 'assets/css/contact.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/mobile.css' %}">
+{% endblock %}
+{% block content %}
+     <div class="main-container">
+        <div class="contact-hero">
+            <h2 class="h2-text-design"> Contact Us</h2>
+            <h6 class="h6-text-design">Get in touch with us today and let us help you with any questions or inquiries
+                you may
+                have.</h6>
+        </div>
+        <div class="closer-container">
+            <div class="closer-text">
+                <h2 class="h2-text-design">
+                    We are Closer than you think
+                </h2>
+                <h6 class="h6-text-design">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                </h6>
+            </div>
+
+            <div class="closer-img">
+                <img src="/image/Vector.jpg" alt="">
+            </div>
+        </div>
+        <div class="form-section container">
+            <form action="#" method="post">
+                <!---------- Name & Email section of form---------->
+                <div class="name-email">
+                    <div class="name-form">
+                        <label for="fName">Full Name</label>
+                        <input type="text" name="fName" id="fName" placeholder="Your name here">
+                    </div>
+                    <div class="email-form">
+                        <label for="fEmail">Full Name</label>
+                        <input type="email" name="fEmail" id="fEmail" placeholder="Your email here">
+                    </div>
+                </div>
+
+                <!---------- Why are you contacting us Section---------->
+                <div class="why-contact-us">
+                    <h4 > Why are you contacting us?</h4>
+                    <div class="why-contact-flex">
+                        <div class="why-contact-left">
+                            <input type="checkbox" id="Bootcamp" name="Bootcamp" value="Bootcamp">
+                            <label for="Bootcamp"> Bootcamp</label><br>
+                            <input type="checkbox" id="Masterclass" name="Masterclass" value="Masterclass">
+                            <label for="Masterclass"> Masterclass</label><br>
+                            <input type="checkbox" id="Accelarator" name="Accelarator" value="Accelarator">
+                            <label for="Accelarator"> Accelarator</label><br>
+                        </div>
+                        <div class="why-contact-left">
+                            <input type="checkbox" id="Services" name="Services" value="Services">
+                            <label for="Services"> Services</label><br>
+                            <input type="checkbox" id="Telecommunications" name="Telecommunications"
+                                value="Telecommunications">
+                            <label for="Telecommunications">Telecommunications</label><br>
+                            <input type="checkbox" id="Drop Shipping" name="Drop Shipping" value="Drop Shipping">
+                            <label for="Drop Shipping"> Drop Shipping</label><br>
+                        </div>
+                    </div>
+                </div>
+                    <!---------- Your message form---------->
+                    <div class="message">
+                        <label for="fMessage">Your Message</label><br>
+                        <textarea name="fMessage" id="fMessage" cols="30" rows="10"></textarea>
+                    </div>
+
+                    <!---------- Submit button---------->
+                    <div class="form-botton">
+                        <input type="submit" class="btn" value="Submit">
+                    </div>
+
+
+            </form>
+
+            <!---------- FORM SECTION DESIGN ENDS---------->
+        </div>
+
+        <div class="operating-button">
+            <div class="operating-hour">
+                <h4>Operating Days</h4>
+                <h5>Monday to Friday</h5>
+            </div>
+
+            <div class="stay-tuned-container">
+                <div class="stay-tuned">
+                    <div class="stay-text">
+                        <h5>Stay connected</h5>
+                    </div>
+                    <div class="stay-button">
+                        <div class="button">
+                            <div class="img-stay"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+                            <div class="img-stay"><i class="fa fa-twitter" aria-hidden="true"></i></div>
+                            <div class="img-stay"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class=" content-space-2 content-space-b-lg-3 faq" style="margin-top: 40px;">
+        <div class="w-lg-75 mx-lg-auto container">
+          <div class="d-grid gap-10">
+
+
+            <div class="d-grid gap-3">
+              <h2 class="text-center">Frequently Asked Questions </h2>
+
+  <!-- Accordion -->
+  <div class="accordion accordion-flush accordion-lg" id="accordionFAQBasics">
+    <!-- Accordion Item -->
+    <div class="accordion-item">
+      <div class="accordion-header" id="headingBasicsOne">
+        <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapseBasicsOne" aria-expanded="false" aria-controls="collapseBasicsOne">
+        <span class="num">01</span> What is Embold Design?
+        </a>
+      </div>
+      <div id="collapseBasicsOne" class="accordion-collapse collapse" aria-labelledby="headingBasicsOne" data-bs-parent="#accordionFAQBasics">
+        <div class="accordion-body">
+          Embold Design is a pioneering tech company committed to delivering practical solutions and innovative strategies.
+        </div>
+      </div>
+    </div>
+    <!-- End Accordion Item -->
+
+    <!-- Accordion Item -->
+    <div class="accordion-item">
+      <div class="accordion-header" id="headingBasicsTwo">
+        <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapseBasicsTwo" aria-expanded="false" aria-controls="collapseBasicsTwo">
+        <span class="num">02</span> What services does Embold Design offer?
+        </a>
+      </div>
+      <div id="collapseBasicsTwo" class="accordion-collapse collapse" aria-labelledby="headingBasicsTwo" data-bs-parent="#accordionFAQBasics">
+        <div class="accordion-body">
+          We offer a variety of services including business consultation, financial projections, business analysis, business design and development, and bootcamp training.
+        </div>
+      </div>
+    </div>
+    <!-- End Accordion Item -->
+
+    <!-- Accordion Item -->
+    <div class="accordion-item">
+      <div class="accordion-header" id="headingBasicsThree">
+        <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapseBasicsThree" aria-expanded="false" aria-controls="collapseBasicsThree">
+        <span class="num">03</span>  What are the bootcamps offered by Embold Design?
+        </a>
+      </div>
+      <div id="collapseBasicsThree" class="accordion-collapse collapse" aria-labelledby="headingBasicsThree" data-bs-parent="#accordionFAQBasics">
+        <div class="accordion-body">
+          We offer bootcamps in Product Design, Web Design/Development, Content Creation/Digital Marketing, Data Analytics, Graphics Design, Product Management, and Project Management.
+        </div>
+      </div>
+    </div>
+    <!-- End Accordion Item -->
+
+    <!-- Accordion Item -->
+    <div class="accordion-item">
+      <div class="accordion-header" id="headingBasicsFour">
+        <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapseBasicsFour" aria-expanded="false" aria-controls="collapseBasicsFour">
+        <span class="num">04</span> Who can attend the bootcamps?
+        </a>
+      </div>
+      <div id="collapseBasicsFour" class="accordion-collapse collapse" aria-labelledby="headingBasicsFour" data-bs-parent="#accordionFAQBasics">
+        <div class="accordion-body">
+          Our bootcamps are open to anyone interested in enhancing their skills whether you are a beginner looking to enter the field or a professional seeking to update your skills.
+        </div>
+      </div>
+    </div>
+    <!-- End Accordion Item -->
+
+    <!-- Accordion Item -->
+    <div class="accordion-item">
+      <div class="accordion-header" id="headingBasicsFive">
+        <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapseBasicsFive" aria-expanded="false" aria-controls="collapseBasicsFive">
+        <span class="num">05</span>  What can I expect to learn from the Bootcamp?
+        </a>
+      </div>
+      <div id="collapseBasicsFive" class="accordion-collapse collapse" aria-labelledby="headingBasicsFive" data-bs-parent="#accordionFAQBasics">
+        <div class="accordion-body">
+          These bootcamps are designed to provide practical, hands-on training and are suitable for both beginners and advanced learners. You will also work on real-world projects to build a portfolio.
+        </div>
+      </div>
+    </div>
+    <!-- End Accordion Item -->
+
+    <!-- Accordion Item -->
+    <div class="accordion-item">
+      <div class="accordion-header" id="headingBasicsSix">
+        <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapseBasicsSix" aria-expanded="false" aria-controls="collapseBasicsSix">
+        <span class="num">06</span>  How long do the bootcamps last?
+        </a>
+      </div>
+      <div id="collapseBasicsSix" class="accordion-collapse collapse" aria-labelledby="headingBasicsSix" data-bs-parent="#accordionFAQBasics">
+        <div class="accordion-body">
+          Our bootcamp lasts for 2 months.
+        </div>
+      </div>
+    </div>
+    <!-- End Accordion Item -->
+  </div>
+  <!-- End Accordion -->
+
+            </div>
+
+           </div>
+          </div>
+        </div>
+
+
+    <div class="about-2 container">
+            <div class="container">
+                <div class="about-2-head">
+                    <img src="{% static 'assets/image/EmboldLabLogo.png' %}" alt="">
+                    <div>
+                    <h2>Thank You For Your Interest In Embold Lab</h2>
+                    <p>We would love to hear from you and discuss how we can help bring your digital ideas to life. Here are the different ways you can get in touch with us.</p>
+                    </div>
+                </div>
+                <div class="about-2-foot">
+                    <div>
+                        <p>Welcome to Embold Lab</p>
+                    </div>
+                    <div>
+                        <p style="background: rgb(245, 239, 239); padding: 15px; border-radius: 5px;">Where collaboration, Expertise, and Client-Centricity Intersect to Shape the Future of Digital Innovation.</p>
+                    </div>
+                    <div>
+                       <a href="{% url 'contact' %}"> <button type="button" class="btn">Start Project</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+{% endblock %}

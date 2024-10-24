@@ -1,0 +1,539 @@
+{% extends 'base.html' %}
+{% load static %}
+ <!-- Title -->
+<title>{% block title %} Home {% endblock %}- Embold Design || Empowering Your Digital Journey: Turning Ideas into Successful Enterprises with Product Design & Development</title>
+
+{% block head %}
+
+
+    <!-- Bootstrap CSS (latest version) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+<!-- FontAwesome for icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+<!-- OwlCarousel CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+<!-- Additional Custom Styles -->
+<link rel="stylesheet" href="https://unpkg.com/bs-brain@2.0.4/components/testimonials/testimonial-3/assets/css/testimonial-3.css">
+
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+{% endblock %}
+
+{% block content %}
+  <!-- ========== MAIN CONTENT ========== -->
+  <main>
+        <div class="hero-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7">
+                      <h2>Building Generations of Skilled</h2>
+                      <h2>Tech Professionals</h2>
+                      <p>Welcome to Embold Lab, where we blend transformative bootcamp training with specialized services to empower individuals and businesses to achieve excellence in their fields.</p>
+                      <div class="hero-btn">
+                        <a href="#courses"><button class="btn hero-btn1">Explore Courses</button></a>
+                       <a href="{% url 'application' %}"> <button class="btn hero-btn2">Register for Cohort 3.0</button></a>
+                  </div>
+                  <div class="container">
+                    <div class="row hero-count">
+                        <div class="col">
+                              <img class="frame-child" alt="up" src="{% static 'assets/image/arrow-up-right-01.svg' %}">
+                              <p>500+</p>
+                              <span>Students Trained</span>
+                        </div>
+                        <div class="col">
+                              <img class="frame-child" alt="up" src="{% static 'assets/image/arrow-up-right-01.svg' %}">
+                              <p>500+</p>
+                              <span>Students Trained</span>
+                        </div>
+                        <div class="col">
+                              <img class="frame-child" alt="up" src="{% static 'assets/image/arrow-up-right-01.svg' %}">
+                              <p>500+</p>
+                              <span>Students Trained</span>
+                        </div>
+                  </div>
+                  </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="container hero-sub-section">
+                           <img src="{% static 'assets/image/hero.png' %}" alt="right image">
+                      </div>
+                    </div>
+                  </div>
+                  <!-- <div class="hero-comp">
+                    <div class="container">
+                        <div class="hero-comp-head" align="center">
+                            <span>Trusted By 250+ Companies</span>
+                        </div>
+                        <div
+                            class="row justify-content-center align-items-center g-2"
+                        >
+                            <div class="col">Column</div>
+                            <div class="col">Column</div>
+                            <div class="col">Column</div>
+                        </div>
+
+                    </div>
+                  </div> -->
+            </div>
+        </div>
+
+      <div class="slide-container swiper container" id="courses">
+        <div class="swipe-head">
+          <h2>Our Learning Category</h2>
+          <p>Transform your brand with our innovative digital solutions that captivate and engage your audience.</p>
+        </div>
+        <div class="slide-content">
+          <div class="card-wrapper swiper-wrapper">
+          {% for bootcamp in featured_bootcamps %}
+            <!--[start of card]-->
+            <div class="card swiper-slide shadow-sm">
+              <div class="image-content">
+                <span class="overlay"></span>
+
+                <div class="card-image">
+                  <img src="{{ bootcamp.image.url }}" alt="{{ bootcamp.title }}" class="card-img">
+                </div>
+              </div>
+
+              <div class="card-content">
+                <h2 class="name">  <a class="name"  href="{{ bootcamp.get_absolute_url }}" style="text-transform: capitalize; text-decoration: none; ">{{ bootcamp.title }}</a></h2>
+
+                <a  class="description" href="{{ bootcamp.get_absolute_url }}" style="text-decoration: none; "> <p class="description">
+                   {{ bootcamp.intro|safe|truncatechars:150 }}
+                </p></a>
+                <div class="price"><h3>₦{{ bootcamp.price|floatformat:0 }}</h3></div>
+                <a href="{{ bootcamp.get_absolute_url }}"><button class="button">Enroll Now</button></a>
+              </div>
+            </div><!--[end of card]-->
+
+   {% endfor %}
+
+
+          </div>
+        </div>
+
+        <div class="swiper-button-next swiper-navBtn"></div>
+        <div class="swiper-button-prev swiper-navBtn"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+      <div class="slide-container swiper container">
+        <div class="swipe-head">
+          <h2>Our Masterclass</h2>
+          <p>Transform your brand with our innovative digital solutions that captivate and engage your audience.</p>
+        </div>
+        <div class="slide-content">
+          <div class="card-wrapper swiper-wrapper">
+            {% for bootcamp in masterclass_bootcamps %}
+            <!--[start of card]-->
+            <div class="card swiper-slide shadow-sm">
+              <div class="image-content">
+                <span class="overlay"></span>
+
+                <div class="card-image">
+                  <img src="{{ bootcamp.image.url }}" alt="{{ bootcamp.title }}" class="card-img">
+                </div>
+              </div>
+
+              <div class="card-content">
+                <h2 class="name">  <a class="name"  href="{{ bootcamp.get_absolute_url }}" style="text-transform: capitalize; text-decoration: none; ">{{ bootcamp.title }}</a></h2>
+
+                <a  class="description" href="{{ bootcamp.get_absolute_url }}" style="text-decoration: none; "> <p class="description">
+                   {{ bootcamp.intro|safe|truncatechars:150 }}
+                </p></a>
+                <div class="price"><h3>₦{{ bootcamp.price|floatformat:0 }}</h3></div>
+                <a href="{{ bootcamp.get_absolute_url }}"><button class="button">Enroll Now</button></a>
+              </div>
+            </div><!--[end of card]-->
+
+   {% endfor %}
+          </div>
+        </div>
+
+        <div class="swiper-button-next swiper-navBtn"></div>
+        <div class="swiper-button-prev swiper-navBtn"></div>
+        <!-- <div class="swiper-pagination"></div> -->
+      </div>
+
+        <div class="container content-space-6 service">
+            <div class="row align-items-md-center mb-7 service-head">
+                <h1>Our Services</h1>
+                <p>Transform your brand with our innovative digital solutions that captivate and engage your audience.</p>
+            </div>
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 service-body">
+                <div class="card card-bordered service-card">
+                  <div class="card-pinned">
+                    <i class="fa fa-id-badge" aria-hidden="true"></i>
+                  </div>
+                  <div class="card-body">
+                    <div class="mb-3">
+                      <h3 class="card-title">
+                        Brand Identity
+                      </h3>
+                      <p>
+                        Creation and development of a unique and compelling brand identity that resonates with your target market. Services include logo design, color scheme selection, typography, and overall brand guidelines to ensure a consistent and memorable brand image.
+                      </p>
+                    </div>
+                  </div>
+                  <button type="button" onclick="window.location='contact.html'" name="" id="" class="btn">
+                    Learn More
+                </button>
+                </div>
+                <div class="card card-bordered service-card">
+                  <div class="card-pinned">
+                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                  </div>
+                  <div class="card-body">
+                    <div class="mb-3">
+                      <h3 class="card-title">
+                        CV Writing / Review
+                      </h3>
+                      <p>
+                        Expertly crafted CV writing and review services to highlight your skills, experience, and achievements, ensuring your resume stands out to potential employers and increases your chances of securing interviews.
+                      </p>
+                    </div>
+                  </div>
+                  <button type="button" onclick="window.location='contact.html'" name="" id="" class="btn">
+                    Learn More
+                </button>
+                </div>
+                <div class="card card-bordered service-card">
+                  <div class="card-pinned">
+                    <i class="fa fa-briefcase" aria-hidden="true"></i>
+                  </div>
+                  <div class="card-body">
+                    <div class="mb-3">
+                      <h3 class="card-title">
+                        Business Consultation
+                      </h3>
+                      <p>
+                        Professional business consultation services to help you identify opportunities, solve problems, and develop strategies for growth and improvement. Our expert advice is tailored to your specific business needs and goals.
+                      </p>
+                    </div>
+                  </div>
+                  <button type="button" onclick="window.location='contact.html'" name="" id="" class="btn">
+                    Learn More
+                </button>
+                </div>
+                <div class="card card-bordered service-card">
+                  <div class="card-pinned">
+                    <i class="fa fa-coins" aria-hidden="true"></i>
+                  </div>
+                  <div class="card-body">
+                    <div class="mb-3">
+                      <h3 class="card-title">
+                        Financial Projection
+                      </h3>
+                      <p>
+                        Detailed financial projection services to forecast your business's future financial performance. This includes revenue projections, expense estimates, cash flow analysis, and financial modeling to help you make informed business decisions.
+                      </p>
+                    </div>
+                  </div>
+                  <button type="button" onclick="window.location='contact.html'" name="" id="" class="btn">
+                    Learn More
+                </button>
+                </div>
+                <div class="card card-bordered service-card">
+                  <div class="card-pinned">
+                    <i class="fa fa-building" aria-hidden="true"></i>
+                  </div>
+                  <div class="card-body">
+                    <div class="mb-3">
+                      <h3 class="card-title">
+                        Business Plan
+                      </h3>
+                      <p>
+                        Comprehensive business plan development services to outline your business strategy, objectives, market analysis, competitive landscape, and financial plan. Our detailed and professionally written business plans are tailored to attract investors and guide your business to success.
+                      </p>
+                    </div>
+                  </div>
+                  <button type="button" onclick="window.location='contact.html'" name="" id="" class="btn">
+                    Learn More
+                </button>
+                </div>
+                <div class="card card-bordered service-card">
+                  <div class="card-pinned">
+                    <i class="fa fa-paint-brush" aria-hidden="true"></i>
+                  </div>
+                  <div class="card-body">
+                    <div class="mb-3">
+                      <h3 class="card-title">
+                        Pitch Deck Design
+                      </h3>
+                      <p>
+                        Creation of visually engaging and persuasive pitch decks to effectively communicate your business idea, vision, and value proposition to potential investors and stakeholders. Our pitch decks are designed to make a lasting impact and drive investment.
+                      </p>
+                    </div>
+                  </div>
+                  <button type="button" onclick="window.location='contact.html'" name="" id="" class="btn">
+                    Learn More
+                </button>
+                </div>
+              </div>
+              </div>
+        <div class="container content-space-2  why">
+            <div class="row align-items-md-center why-head">
+                <h2>Why Embold Lab</h2>
+                <p>Transform your brand with our innovative digital solutions that captivate and engage your audience.</p>
+            </div>
+            <div class="row row-cols-1 row-cols-sm-2  why-body">
+                <div class="card card-bordered h-100  why-card">
+                  <div class="card-pinned">
+                    <i class="fa fa-award" aria-hidden="true"></i>
+                  </div>
+                  <div class="card-body">
+                    <div class="mb-3">
+                      <h3 class="card-title">
+                        Expertise
+                      </h3>
+                      <p>
+                        Our team consists of highly skilled professionals who have a deep understanding of the digital landscape. We stay updated with the latest industry trends and best practices to deliver cutting-edge solutions.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card card-bordered h-100  why-card">
+                  <div class="card-pinned">
+                    <i class="fa fa-users" aria-hidden="true"></i>
+                  </div>
+                  <div class="card-body">
+                    <div class="mb-3">
+                      <h3 class="card-title">
+                        Client-Centric Approach
+                      </h3>
+                      <p>
+                        We prioritize our clients and their unique needs. We listen to your ideas, challenges, and goals, and tailor our services to meet your specific requirements. Your success is our success.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card card-bordered h-100  why-card">
+                  <div class="card-pinned">
+                    <i class="fa fa-chart-line" aria-hidden="true"></i>
+                  </div>
+                  <div class="card-body">
+                    <div class="mb-3">
+                      <h3 class="card-title">
+                        Results-Driven Solutions
+                      </h3>
+                      <p>
+                        Our primary focus is on delivering results. We combine creativity and technical expertise to create digital products that drive business growth, enhance user experiences, and provide a competitive advantage.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card card-bordered h-100  why-card">
+                  <div class="card-pinned">
+                    <i class="fa fa-handshake-o" aria-hidden="true"></i>
+                  </div>
+                  <div class="card-body">
+                    <div class="mb-3">
+                      <h3 class="card-title">
+                        Collaborative Partnership
+                      </h3>
+                      <p>
+                        We value long-term relationships with our clients. We see ourselves as your digital partner, providing ongoing support, maintenance, and updates to ensure your digital products continue to thrive.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </div>
+
+                  <div class="test-section">
+                    <div class="test-head">
+                      <h2>What Our Clients Say About Us</h2>
+                      <p>Transform your brand with our innovative digital solutions that captivate and engage your audience.</p>
+                  </div>
+                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                      <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                      </div>
+                      <div class="carousel-inner">
+                        <div class="carousel-item active">
+                          <div class="card border-0 border-bottom border-warning shadow-sm">
+                            <div class="card-body p-4 p-xxl-5">
+                              <figure>
+                                <img class="img-fluid rounded rounded-circle mb-4 border border-5" loading="lazy" src="./assets/img/testimonial-img-1.jpg" alt="Luna John">
+                                <figcaption>
+                                  <div class="bsb-ratings text-warning mb-3" data-bsb-star="5" data-bsb-star-off="0"></div>
+                                  <blockquote class="bsb-blockquote-icon mb-4">We were so impressed with the work they did for us. They were able to take our vision and turn it into a reality, and they did it all on time and within budget. We would highly recommend them to anyone looking for a reliable partner.</blockquote>
+                                  <h4 class="mb-2">Luna John</h4>
+                                  <h5 class="fs-6 text-secondary mb-0">UX Designer</h5>
+                                </figcaption>
+                              </figure>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="carousel-item">
+                          <div class="card border-0 border-bottom border-warning shadow-sm">
+                            <div class="card-body p-4 p-xxl-5">
+                              <figure>
+                                <img class="img-fluid rounded rounded-circle mb-4 border border-5" loading="lazy" src="./assets/img/testimonial-img-4.jpg" alt="Luke Reeves">
+                                <figcaption>
+                                  <div class="bsb-ratings text-warning mb-3" data-bsb-star="5" data-bsb-star-off="0"></div>
+                                  <blockquote class="bsb-blockquote-icon mb-4">We were looking for a company that could help us with our branding. We needed a website and marketing materials. They were able to create a brand identity that we loved. They worked with us to develop a logo that represented our company.</blockquote>
+                                  <h4 class="mb-2">Luke Reeves</h4>
+                                  <h5 class="fs-6 text-secondary mb-0">Sales Manager</h5>
+                                </figcaption>
+                              </figure>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="carousel-item">
+                          <div class="card border-0 border-bottom border-warning shadow-sm">
+                            <div class="card-body p-4 p-xxl-5">
+                              <figure>
+                                <img class="img-fluid rounded rounded-circle mb-4 border border-5" loading="lazy" src="./assets/img/testimonial-img-2.jpg" alt="Mark Smith">
+                                <figcaption>
+                                  <div class="bsb-ratings text-warning mb-3" data-bsb-star="4" data-bsb-star-off="1"></div>
+                                  <blockquote class="bsb-blockquote-icon mb-4">We were looking for a company that could help us develop a new website that was both visually appealing and user-friendly. We are so happy with the results, and we would highly recommend them to anyone looking for a new website.</blockquote>
+                                  <h4 class="mb-2">Mark Smith</h4>
+                                  <h5 class="fs-6 text-secondary mb-0">Marketing Specialist</h5>
+                                </figcaption>
+                              </figure>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                        <!-- <span class="carousel-control-prev-icon" aria-hidden="true" ></span> -->
+                        <i class="fa fa-arrow-left" aria-hidden="true" style="border: 1px solid #e3811d; border-radius: 50px; color: black; padding: 10px;"></i>
+                        <span class="visually-hidden">Previous</span>
+                      </button>
+                      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                        <!-- <span class="carousel-control-next-icon" aria-hidden="true"></span> -->
+                        <i class="fa fa-arrow-right" aria-hidden="true" style="border: 1px solid #e3811d; border-radius: 50px; color: black; padding: 10px;"></i>
+                        <span class="visually-hidden">Next</span>
+                      </button>
+                    </div>
+                  </div>
+
+
+
+                  <div class=" content-space-2 content-space-b-lg-3 faq" style="margin-top: 40px;">
+                    <div class="w-lg-75 mx-lg-auto container">
+                      <div class="d-grid gap-10">
+
+
+                        <div class="d-grid gap-3">
+                          <h2 class="text-center">Frequently Asked Questions </h2>
+
+              <!-- Accordion -->
+              <div class="accordion accordion-flush accordion-lg" id="accordionFAQBasics">
+                <!-- Accordion Item -->
+                <div class="accordion-item">
+                  <div class="accordion-header" id="headingBasicsOne">
+                    <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapseBasicsOne" aria-expanded="false" aria-controls="collapseBasicsOne">
+                    <span class="num">01</span> What is Embold Design?
+                    </a>
+                  </div>
+                  <div id="collapseBasicsOne" class="accordion-collapse collapse" aria-labelledby="headingBasicsOne" data-bs-parent="#accordionFAQBasics">
+                    <div class="accordion-body">
+                      Embold Design is a pioneering tech company committed to delivering practical solutions and innovative strategies.
+                    </div>
+                  </div>
+                </div>
+                <!-- End Accordion Item -->
+
+                <!-- Accordion Item -->
+                <div class="accordion-item">
+                  <div class="accordion-header" id="headingBasicsTwo">
+                    <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapseBasicsTwo" aria-expanded="false" aria-controls="collapseBasicsTwo">
+                    <span class="num">02</span> What services does Embold Design offer?
+                    </a>
+                  </div>
+                  <div id="collapseBasicsTwo" class="accordion-collapse collapse" aria-labelledby="headingBasicsTwo" data-bs-parent="#accordionFAQBasics">
+                    <div class="accordion-body">
+                      We offer a variety of services including business consultation, financial projections, business analysis, business design and development, and bootcamp training.
+                    </div>
+                  </div>
+                </div>
+                <!-- End Accordion Item -->
+
+                <!-- Accordion Item -->
+                <div class="accordion-item">
+                  <div class="accordion-header" id="headingBasicsThree">
+                    <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapseBasicsThree" aria-expanded="false" aria-controls="collapseBasicsThree">
+                    <span class="num">03</span>  What are the bootcamps offered by Embold Design?
+                    </a>
+                  </div>
+                  <div id="collapseBasicsThree" class="accordion-collapse collapse" aria-labelledby="headingBasicsThree" data-bs-parent="#accordionFAQBasics">
+                    <div class="accordion-body">
+                      We offer bootcamps in Product Design, Web Design/Development, Content Creation/Digital Marketing, Data Analytics, Graphics Design, Product Management, and Project Management.
+                    </div>
+                  </div>
+                </div>
+                <!-- End Accordion Item -->
+
+                <!-- Accordion Item -->
+                <div class="accordion-item">
+                  <div class="accordion-header" id="headingBasicsFour">
+                    <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapseBasicsFour" aria-expanded="false" aria-controls="collapseBasicsFour">
+                    <span class="num">04</span> Who can attend the bootcamps?
+                    </a>
+                  </div>
+                  <div id="collapseBasicsFour" class="accordion-collapse collapse" aria-labelledby="headingBasicsFour" data-bs-parent="#accordionFAQBasics">
+                    <div class="accordion-body">
+                      Our bootcamps are open to anyone interested in enhancing their skills whether you are a beginner looking to enter the field or a professional seeking to update your skills.
+                    </div>
+                  </div>
+                </div>
+                <!-- End Accordion Item -->
+
+                <!-- Accordion Item -->
+                <div class="accordion-item">
+                  <div class="accordion-header" id="headingBasicsFive">
+                    <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapseBasicsFive" aria-expanded="false" aria-controls="collapseBasicsFive">
+                    <span class="num">05</span>  What can I expect to learn from the Bootcamp?
+                    </a>
+                  </div>
+                  <div id="collapseBasicsFive" class="accordion-collapse collapse" aria-labelledby="headingBasicsFive" data-bs-parent="#accordionFAQBasics">
+                    <div class="accordion-body">
+                      These bootcamps are designed to provide practical, hands-on training and are suitable for both beginners and advanced learners. You will also work on real-world projects to build a portfolio.
+                    </div>
+                  </div>
+                </div>
+                <!-- End Accordion Item -->
+
+                <!-- Accordion Item -->
+                <div class="accordion-item">
+                  <div class="accordion-header" id="headingBasicsSix">
+                    <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapseBasicsSix" aria-expanded="false" aria-controls="collapseBasicsSix">
+                    <span class="num">06</span>  How long do the bootcamps last?
+                    </a>
+                  </div>
+                  <div id="collapseBasicsSix" class="accordion-collapse collapse" aria-labelledby="headingBasicsSix" data-bs-parent="#accordionFAQBasics">
+                    <div class="accordion-body">
+                      Our bootcamp lasts for 2 months.
+                    </div>
+                  </div>
+                </div>
+                <!-- End Accordion Item -->
+              </div>
+              <!-- End Accordion -->
+
+                        </div>
+
+                       </div>
+                      </div>
+                    </div>
+                    <div class="contact">
+                        <div class="contact-head">
+                            <img src="{% static 'assets/image/EmboldLabLogo.png' %}" alt="">
+                            <h2>Thank You For Your Interest In Embold Lab</h2>
+                            <p>We would love to hear from you and discuss how we can help bring your digital ideas to life. Here are the different ways you can get in touch with us.</p>
+                            <a href="contact.html"><button type="button" class="btn">Start Project</button></a>
+                        </div>
+                    </div>
+    </main>
+  <!-- ========== END MAIN CONTENT ========== -->
+
+{% endblock %}

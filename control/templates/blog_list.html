@@ -1,0 +1,161 @@
+
+{% extends 'base.html' %}
+ <!-- Title -->
+<title>{% block title %} Newsroom {% endblock %}- Embold Design || Empowering Your Digital Journey: Turning Ideas into Successful Enterprises with Product Design & Development</title>
+{% load static %}
+{% load cloudinary %}
+<!-- course_description.html -->
+{% load i18n %}
+{% load custom_tags %}
+{% block content %}
+
+  <!-- ========== MAIN CONTENT ========== -->
+
+<main id="content" role="main">
+    <!-- Hero -->
+    <div class="container content-space-t-3  content-space-b-1 content-space-b-md-2">
+        <div class="w-md-75 w-lg-50 text-center mx-md-auto">
+            <h1 class="display-4">Newsroom</h1>
+            <p class="lead">Latest updates and Hand-picked resources.</p>
+        </div>
+    </div>
+    <!-- End Hero -->
+
+    <!-- Card Grid -->
+    <div class="container content-space-b-2 content-space-b-lg-3">
+        <div class="row justify-content-md-between align-items-md-center mb-7">
+            <div class="col-md-5 mb-5 mb-md-0">
+                <!-- Tags -->
+                <div class="d-md-flex align-items-md-center text-center text-md-start">
+                    <span class="d-block me-md-3 mb-2 mb-md-1">Tags:</span>
+                    <!-- Replace with dynamic tags if needed -->
+                    <a class="btn btn-soft-secondary btn-xs rounded-pill m-1" href="javascript:;">Business</a>
+                    <a class="btn btn-soft-secondary btn-xs rounded-pill m-1" href="javascript:;">UI/UX</a>
+                    <a class="btn btn-soft-secondary btn-xs rounded-pill m-1" href="javascript:;">Environment</a>
+                    <a class="btn btn-soft-secondary btn-xs rounded-pill m-1" href="javascript:;">Design</a>
+                    <a class="btn btn-soft-secondary btn-xs rounded-pill m-1" href="javascript:;">Tech</a>
+                </div>
+                <!-- End Tags -->
+            </div>
+            <!-- End Col -->
+
+ 
+            <!-- End Col -->
+        </div>
+        <!-- End Row -->
+
+        <!-- Loop through posts -->
+        {% for post in all_posts %}
+        <div class="card card-stretched-vertical mb-10">
+            <div class="row gx-0">
+                <div class="col-lg-8">
+                    <div class="shape-container overflow-hidden">
+                        <a class="text-dark" href="{% url 'posts' slug=post.slug %}"><img class="card-img" src="{{ post.Cover_image.url }}" alt="{{ post.title }}"></a>
+                        <!-- Shape -->
+                        <div class="shape shape-end d-none d-lg-block zi-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 100.1 1920" height="101%">
+                                <path fill="#fff" d="M0,1920c0,0,93.4-934.4,0-1920h100.1v1920H0z" />
+                            </svg>
+                        </div>
+                        <!-- End Shape -->
+
+                        <!-- Shape -->
+                        <div class="shape shape-bottom d-lg-none zi-1" style="margin-bottom: -.25rem">
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 1920 100.1">
+                                <path fill="#fff" d="M0,0c0,0,934.4,93.4,1920,0v100.1H0L0,0z"></path>
+                            </svg>
+                        </div>
+                        <!-- End Shape -->
+                    </div>
+                </div>
+                <!-- End Col -->
+
+                <div class="col-lg-4">
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <h3 class="card-title">
+                            <a class="text-dark" href="{% url 'posts' slug=post.slug %}">{{ post.title }}</a>
+                        </h3>
+
+                        <p class="card-text">{{ post.subtitle|safe|truncatechars:200  }} <a class="" style="color: #ff5d22; font-weight: bold;" href="{% url 'posts' slug=post.slug %}">Read More</a></p>
+               
+
+                        <!-- Card Footer -->
+                        <div class="card-footer">
+                            <div class="d-flex align-items-center">
+                                <!-- Example avatars, replace with your data -->
+                                <div class="flex-shrink-0 avatar-group avatar-group-xs">
+                                    <p>   Author : Admin</p>
+                                </div>
+
+                                <div class="flex-grow-1">
+                                    <div class="d-flex justify-content-end">
+                                        <p class="card-text">{{ post.date_added|date:"F j" }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Card Footer -->
+                    </div>
+                    <!-- End Card Body -->
+                </div>
+                <!-- End Col -->
+            </div>
+            <!-- End Row -->
+        </div>
+        <!-- End Card -->
+        {% endfor %}
+        <!-- End Loop through posts -->
+
+        <!-- Pagination -->
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-end">
+                {% if all_posts.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ all_posts.previous_page_number }}" aria-label="Previous">
+                        <span aria-hidden="true"><i class="bi-chevron-double-left small"></i></span>
+                    </a>
+                </li>
+                {% else %}
+                <li class="page-item disabled">
+                    <span class="page-link" aria-disabled="true">
+                        <span aria-hidden="true"><i class="bi-chevron-double-left small"></i></span>
+                    </span>
+                </li>
+                {% endif %}
+
+                {% for i in all_posts.paginator.page_range %}
+                {% if all_posts.number == i %}
+                <li class="page-item active"><span class="page-link">{{ i }}</span></li>
+                {% else %}
+                <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                {% endif %}
+                {% endfor %}
+
+                {% if all_posts.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ all_posts.next_page_number }}" aria-label="Next">
+                        <span aria-hidden="true"><i class="bi-chevron-double-right small"></i></span>
+                    </a>
+                </li>
+                {% else %}
+                <li class="page-item disabled">
+                    <span class="page-link" aria-disabled="true">
+                        <span aria-hidden="true"><i class="bi-chevron-double-right small"></i></span>
+                    </span>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+        <!-- End Pagination -->
+    </div>
+    <!-- End Card Grid -->
+</main>
+
+<!-- End .main -->
+
+
+  <!-- ========== END MAIN CONTENT ========== -->
+
+
+{% endblock %}
