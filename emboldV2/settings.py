@@ -31,7 +31,7 @@ SECRET_KEY = config('PINNA')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = ['127.0.0.1','.vercel.app','embolddesign.com']
+ALLOWED_HOSTS = ['127.0.0.1','.vercel.app','embolddesign.com','emboldlab.onrender.com']
 
 
 # Application definition
