@@ -77,7 +77,7 @@ button{
 }
 .hero-section {
     position: relative;
-    background-image: url('/image/cubic.png'); /* Set your image here */
+    background-image: url('/static/assets/image/cubic.png'); /* Set your image here */
     background-size: cover; /* Ensure the image covers the entire section */
     background-position: center; /* Center the background image */
     background-repeat: no-repeat;
@@ -164,38 +164,38 @@ button{
 }
    /* Card Design */
   .learn-cat-body .card {
-  flex-shrink: 0; 
+  flex-shrink: 0;
   width: 18rem;
-  margin: 0 0px; 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  margin: 0 0px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background-color: #fff;
   border-radius: 8px;
-  overflow: hidden; 
+  overflow: hidden;
   }
 
   .learn-cat-body .card img {
   width: 100%;
   height: 250px;
-  object-fit: cover; 
+  object-fit: cover;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   }
 
   .learn-cat-body .card-body {
-  padding: 15px; 
-  text-align: left; 
+  padding: 15px;
+  text-align: left;
   }
 
   .learn-cat-body .card-title {
-  font-size: 1.25rem; 
-  font-weight: 600; 
+  font-size: 1.25rem;
+  font-weight: 600;
   margin-bottom: 10px;
   }
 
   .learn-cat-body .card-text {
-  font-size: 0.95rem; 
-  color: #555; 
-  margin-bottom: 15px; 
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 15px;
   }
 
   .learn-cat-body .card-subtitle {
@@ -205,16 +205,16 @@ button{
   }
 
   .learn-cat-body .btn {
-  background: var(--orange); 
-  color: #fff; 
-  padding: 10px 15px; 
-  border-radius: 5px; 
+  background: var(--orange);
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
   border: none;
-  text-transform: uppercase; 
+  text-transform: uppercase;
   }
 
   .learn-cat-body .btn:hover {
-  background: darkorange; 
+  background: darkorange;
   }
 
 .service-head {
@@ -529,7 +529,7 @@ transition: background .6s ease;
 .control-btn i.fa-arrow-left {
   position: absolute;
   right: 6em;
-} 
+}
 
 i.fa-arrow-right:hover,
 i.fa-arrow-left:hover {
@@ -581,8 +581,8 @@ border: 2px solid #ffc107;
     transition: all 0.7s ease-out;
     right: 150px;
     position: relative;
-  } 
-} 
+  }
+}
 
  @media screen and (max-width: 576px) {
 
@@ -594,7 +594,7 @@ background-color: rgba(255, 255, 255, 0.9);
 border-radius: 10px;
 }
 
-} 
+}
 
 .slide-container{
   max-width: 1120px;
@@ -767,10 +767,10 @@ border-radius: 10px;
             font-style: normal;
         }
 
-        .form-container input[type="text"], 
-        .form-container input[type="email"], 
-        .form-container input[type="file"], 
-        .form-container select, 
+        .form-container input[type="text"],
+        .form-container input[type="email"],
+        .form-container input[type="file"],
+        .form-container select,
         .form-container textarea {
             width: 100%;
             padding: 12px;
@@ -779,7 +779,7 @@ border-radius: 10px;
             border: 1px solid #ced4da;
         }
 
-        .form-container input[type="radio"], 
+        .form-container input[type="radio"],
         .form-container input[type="checkbox"] {
             margin-right: 8px;
         }

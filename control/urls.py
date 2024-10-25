@@ -18,4 +18,8 @@ urlpatterns = [
 
     path('blog/', views.blog, name='blog'),
     path('contact-us/', views.contact_page, name='contact'),
+    path('services/', views.service_page, name='services'),
+    path('work/', views.work_page, name='work'),
+    path('dropship-services/', views.ship_page, name='ship'),
+
 ]

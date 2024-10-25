@@ -36,7 +36,7 @@
                       <p>Welcome to Embold Lab, where we blend transformative bootcamp training with specialized services to empower individuals and businesses to achieve excellence in their fields.</p>
                       <div class="hero-btn">
                         <a href="#courses"><button class="btn hero-btn1">Explore Courses</button></a>
-                       <a href="{% url 'application' %}"> <button class="btn hero-btn2">Register for Cohort 3.0</button></a>
+                       <a href="#courses"> <button class="btn hero-btn2">Register for Cohort 3.0</button></a>
                   </div>
                   <div class="container">
                     <div class="row hero-count">
@@ -361,7 +361,7 @@
                           <div class="card border-0 border-bottom border-warning shadow-sm">
                             <div class="card-body p-4 p-xxl-5">
                               <figure>
-                                <img class="img-fluid rounded rounded-circle mb-4 border border-5" loading="lazy" src="./assets/img/testimonial-img-1.jpg" alt="Luna John">
+                                <img class="img-fluid rounded rounded-circle mb-4 border border-5" loading="lazy" src="{% static 'assets/image/image.png' %}" alt="Luna John">
                                 <figcaption>
                                   <div class="bsb-ratings text-warning mb-3" data-bsb-star="5" data-bsb-star-off="0"></div>
                                   <blockquote class="bsb-blockquote-icon mb-4">We were so impressed with the work they did for us. They were able to take our vision and turn it into a reality, and they did it all on time and within budget. We would highly recommend them to anyone looking for a reliable partner.</blockquote>
@@ -376,7 +376,7 @@
                           <div class="card border-0 border-bottom border-warning shadow-sm">
                             <div class="card-body p-4 p-xxl-5">
                               <figure>
-                                <img class="img-fluid rounded rounded-circle mb-4 border border-5" loading="lazy" src="./assets/img/testimonial-img-4.jpg" alt="Luke Reeves">
+                                <img class="img-fluid rounded rounded-circle mb-4 border border-5" loading="lazy" src="{% static 'assets/image/image.png' %}" alt="Luke Reeves">
                                 <figcaption>
                                   <div class="bsb-ratings text-warning mb-3" data-bsb-star="5" data-bsb-star-off="0"></div>
                                   <blockquote class="bsb-blockquote-icon mb-4">We were looking for a company that could help us with our branding. We needed a website and marketing materials. They were able to create a brand identity that we loved. They worked with us to develop a logo that represented our company.</blockquote>
@@ -391,7 +391,7 @@
                           <div class="card border-0 border-bottom border-warning shadow-sm">
                             <div class="card-body p-4 p-xxl-5">
                               <figure>
-                                <img class="img-fluid rounded rounded-circle mb-4 border border-5" loading="lazy" src="./assets/img/testimonial-img-2.jpg" alt="Mark Smith">
+                                <img class="img-fluid rounded rounded-circle mb-4 border border-5" loading="lazy" src="{% static 'assets/image/image.png' %}" alt="Mark Smith">
                                 <figcaption>
                                   <div class="bsb-ratings text-warning mb-3" data-bsb-star="4" data-bsb-star-off="1"></div>
                                   <blockquote class="bsb-blockquote-icon mb-4">We were looking for a company that could help us develop a new website that was both visually appealing and user-friendly. We are so happy with the results, and we would highly recommend them to anyone looking for a new website.</blockquote>
@@ -530,7 +530,7 @@
                             <img src="{% static 'assets/image/EmboldLabLogo.png' %}" alt="">
                             <h2>Thank You For Your Interest In Embold Lab</h2>
                             <p>We would love to hear from you and discuss how we can help bring your digital ideas to life. Here are the different ways you can get in touch with us.</p>
-                            <a href="contact.html"><button type="button" class="btn">Start Project</button></a>
+                            <a href="{% url 'contact' %}"><button type="button" class="btn">Start Project</button></a>
                         </div>
                     </div>
     </main>

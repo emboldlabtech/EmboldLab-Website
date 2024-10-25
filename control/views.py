@@ -228,11 +228,19 @@ def success_page(request):
 def contact_page(request):
     return render(request, 'contact.html')
 
+def service_page(request):
+    return render(request, 'service.html')
+
+def work_page(request):
+    return render(request, 'work.html')
+def ship_page(request):
+    return render(request, 'ship.html')
 
 def posts(request, slug):
     # Get the Blogpost object for the given slug
     post = get_object_or_404(Blogpost, slug=slug)
     categories = Category.objects.all()
+
     categorized_bootcamps = [
         (category, Bootcamp.objects.filter(category=category)) for category in categories
     ]
@@ -259,6 +267,7 @@ def posts(request, slug):
         "related_posts": related_posts,
         "images": images,
         'categorized_bootcamps': categorized_bootcamps,
+
     }
 
     return render(request, 'blog_detail.html', context)
@@ -266,6 +275,7 @@ def posts(request, slug):
 def blog(request):
     all_posts = Blogpost.objects.all()
     categories = Category.objects.all()
+    popular_posts = Blogpost.objects.order_by('-num_views')[:5]
     categorized_bootcamps = [
         (category, Bootcamp.objects.filter(category=category)) for category in categories
     ]
@@ -284,6 +294,7 @@ def blog(request):
         'all_posts': page,
         'timezone': timezone,
         'categorized_bootcamps': categorized_bootcamps,
+        'popular_posts': popular_posts,
     }
 
     return render(request, 'blog_list.html', context)

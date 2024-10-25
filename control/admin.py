@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.contrib import admin
 from django.utils.text import slugify
 from .forms import BootcampForm,CategoryForm,RegistrationForm,BlogForm
-from .models import Blogpost,Student_project
+from .models import Blogpost,Student_project,Author
 def export_registrations_to_csv(modeladmin, request, queryset):
     import csv
     from django.http import HttpResponse
@@ -16,11 +16,11 @@ def export_registrations_to_csv(modeladmin, request, queryset):
 
     for registration in queryset:
         writer.writerow([
-            registration.first_name, 
-            registration.middle_name, 
-            registration.surname, 
-            registration.email, 
-            registration.bootcamp.title, 
+            registration.first_name,
+            registration.middle_name,
+            registration.surname,
+            registration.email,
+            registration.bootcamp.title,
             registration.date_registered
         ])
 
@@ -49,7 +49,7 @@ class ProductAdmin(admin.ModelAdmin):
     def save_model(self, request, obj, form, change):
         obj.slug = slugify(obj.title)
         obj.save()
-        
+
 
 class RegistrationAdmin(admin.ModelAdmin):
     list_display = ('full_name', 'email', 'bootcamp', 'date_registered','referral_code')
@@ -75,6 +75,7 @@ class ProductAdmin(admin.ModelAdmin):
 
 admin.site.register(Blogpost, ProductAdmin)
 admin.site.register(Student_project)
+admin.site.register(Author)
 
 admin.site.register(Bootcamp, BootcampAdmin)
 admin.site.register(Category, ProductAdmin)

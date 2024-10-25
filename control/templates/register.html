@@ -38,7 +38,7 @@
 
             <!-- First Name -->
             <div class="mb-3">
-                <label class="form-label" for="id_first_name">Enter Your First Name</label>
+                <label class="form-label" for="id_first_name">First Name<span class="req">*</span></label>
                 {{ form.first_name }}
                 <div class="invalid-feedback">
                     Please provide a valid first name.
@@ -47,7 +47,7 @@
 
             <!-- Middle Name -->
             <div class="mb-3">
-                <label class="form-label" for="id_middle_name">Enter Your Middle Name (optional)</label>
+                <label class="form-label" for="id_middle_name">Middle Name (optional)</label>
                 {{ form.middle_name }}
                 <div class="invalid-feedback">
                     Please provide a valid middle name.
@@ -56,41 +56,46 @@
 
             <!-- Surname -->
             <div class="mb-3">
-                <label class="form-label" for="id_surname">Enter Your Surname*</label>
+                <label class="form-label" for="id_surname">Surname<span class="req">*</span></label>
                 {{ form.surname }}
                 <div class="invalid-feedback">
                     Please provide a valid surname.
                 </div>
             </div>
+                <!-- Email -->
             <div class="mb-3">
-                <label class="form-label" for="id_phone">Enter Your Phone Number</label>
-                {{ form.phone }}
-                <div class="invalid-feedback">
-                    Please provide a valid phone number.
-                </div>
-            </div>
-
-            <!-- Email -->
-            <div class="mb-3">
-                <label class="form-label" for="id_email">Enter Your Email</label>
+                <label class="form-label" for="id_email">Enter Your Email<span class="req">*</span></label>
                 {{ form.email}}
                 <div class="invalid-feedback">
                     Please provide a valid email address.
                 </div>
             </div>
 
-                   <!-- Email -->
             <div class="mb-3">
-                <label class="form-label" for="id_email">Referral code *optional</label>
-                {{ form.referral_code}}
+                <label class="form-label" for="id_phone">WhatsApp Phone Number<span class="req">*</span></label>
+                {{ form.phone }}
                 <div class="invalid-feedback">
-                    Please provide a valid referral code.
+                    Please provide a valid phone number.
+                </div>
+            </div>
+<!-- Laptop Access -->
+            <div class="mb-3">
+                <label class="form-label" for="id_laptop_access">Do you have access to a laptop?<span class="req">*</span>
+</label>
+                {{ form.laptop_access }}
+                <div class="invalid-feedback">
+                    Please indicate if you have laptop access.
                 </div>
             </div>
 
+
+
+                   <!-- Email -->
+
+
             <!-- Gender -->
             <div class="mb-3">
-                <label class="form-label">{{ form.gender.label }}</label>
+                <label class="form-label">{{ form.gender.label }}<span class="req">*</span></label>
                 {{ form.gender}}
                 <div class="invalid-feedback">
                     Please select a gender.
@@ -110,7 +115,7 @@
 
             <!-- Level -->
             <div class="mb-3">
-                <label class="form-label">What do you see yourself as?
+                <label class="form-label">What do you see yourself as?<span class="req">*</span>
 </label>
                 {{ form.level }}
                 <div class="invalid-feedback">
@@ -118,15 +123,6 @@
                 </div>
             </div>
 
-            <!-- Laptop Access -->
-            <div class="mb-3">
-                <label class="form-label" for="id_laptop_access">Do you have access to a laptop?
-</label>
-                {{ form.laptop_access }}
-                <div class="invalid-feedback">
-                    Please indicate if you have laptop access.
-                </div>
-            </div>
 
 
 
@@ -135,7 +131,7 @@
 
             <!-- Full Duration Commitment -->
             <div class="mb-3">
-                <label class="form-label">Are you available to commit to the full duration of the program?</label>
+                <label class="form-label">Are you available to commit to the full duration of the program?<span class="req">*</span></label>
                 {{ form.full_duration_commitment }}
                 <div class="invalid-feedback">
                     Please indicate if you can commit to the full duration.
@@ -151,11 +147,18 @@
                     Please select a source.
                 </div>
             </div>
+              <div class="mb-3">
+                <label class="form-label" for="id_email">Referral code *optional</label>
+                {{ form.referral_code}}
+                <div class="invalid-feedback">
+                    Please provide a valid referral code.
+                </div>
+            </div>
 
             <!-- Pledge Dedication -->
             <div class="form-check mb-3">
                 {{ form.pledge_dedication|as_crispy_field }}
-                <label class="form-check-label" for="id_pledge_dedication">I pledge to make the most of this opportunity by dedicating myself wholeheartedly to my studies, attendance of all classes sessions and projects.</label>
+                <label class="form-check-label" for="id_pledge_dedication">I pledge to make the most of this opportunity by dedicating myself wholeheartedly to my studies, attendance of all classes sessions and projects.<span class="req">*</span></label>
                     <div class="invalid-feedback">
                     Please pledge your dedication.
                     </div>

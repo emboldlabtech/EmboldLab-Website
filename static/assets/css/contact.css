@@ -16,7 +16,7 @@ input{
 }
 
 .contact-hero{
-    background: url(/image/contacthero.webp);
+    background: url(/static/assets/image/contacthero.webp);
     background-position: center;
     background-repeat: no-repeat;
     background-size:cover;
@@ -96,7 +96,7 @@ input{
 }
 
 .why-contact-left input[type="checkbox"]{
-        margin-right: 10px;  
+        margin-right: 10px;
 }
 
 .message textarea{

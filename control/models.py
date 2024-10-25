@@ -125,12 +125,11 @@ class Registration(models.Model):
     ]
 
     SOURCE_CHOICES = [
-        ('SM', 'Social Media'),
-        ('FL', 'Futlink Hardwares'),
-        ('SI', 'Splash Initiative'),
-        ('R', 'Referral'),
-        ('N', 'NAUS'),
-        ('O', 'Others')
+        ('Twitter', 'Twitter'),
+        ('Facebook', 'Facebook'),
+        ('LinkedIn', 'LinkedIn'),
+        ('Referral', 'Referral'),
+        ('NAUS', 'NAUS'),
     ]
 
     bootcamp = models.ForeignKey(Bootcamp, on_delete=models.CASCADE)
@@ -144,7 +143,7 @@ class Registration(models.Model):
     level = models.CharField(default='B', max_length=1, choices=LEVEL_CHOICES)
     laptop_access =models.CharField(default='Y', max_length=1, choices=OPTIONS )
     full_duration_commitment = models.CharField(default='Y', max_length=1, choices=OPTIONS )
-    source = models.CharField(max_length=2, choices=SOURCE_CHOICES , blank=True, null=True)
+    source = models.CharField(max_length=205, choices=SOURCE_CHOICES , blank=True, null=True)
     pledge_dedication = models.BooleanField(default='True',blank=False, null=False)
     pledge_terms = models.BooleanField(default='True' , blank=False, null=False)
     date_registered = models.DateTimeField(auto_now_add=True)
@@ -153,7 +152,23 @@ class Registration(models.Model):
         return f"{self.first_name} {self.surname} registered for {self.bootcamp.title}"
 
 
+# Define the Author model with name and color fields
+class Author(models.Model):
+    COLOR_CHOICES = [
+        ('#FF5733', 'Red'),
+        ('#33FF57', 'Green'),
+        ('#3357FF', 'Blue'),
+        ('#FF33A5', 'Pink'),
+        ('#33FFF6', 'Cyan'),
+        ('#F6FF33', 'Yellow'),
+        ('#FF8C33', 'Orange'),
+    ]
 
+    name = models.CharField(max_length=100)
+    color = models.CharField(max_length=7, choices=COLOR_CHOICES, help_text="Select a color")
+
+    def __str__(self):
+        return self.name
 
 
 class Blogpost(models.Model):
@@ -162,6 +177,11 @@ class Blogpost(models.Model):
     subtitle = models.CharField(max_length=20000)
     slug = models.SlugField(unique=True, max_length=3700)
     post_detail = RichTextField(blank=True, null=True)
+        # Add author field as a ForeignKey
+
+    # ForeignKey to Author without default value
+    author = models.ForeignKey(Author, on_delete=models.CASCADE, related_name="blogposts")
+
 
     num_views = models.IntegerField(default=0)
     last_visit = models.DateTimeField(blank=True, null=True)

@@ -58,22 +58,22 @@
                             >
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="service.html">Services</a>
+                            <a class="nav-link" href="{% url 'services' %}">Services</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="work.html">Work</a>
+                            <a class="nav-link" href="{% url 'work' %}">Work</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'about_us' %}">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="blog.html">News</a>
+                            <a class="nav-link" href="{% url 'blog' %}">News</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="https://boldkonnect.com">Telecommunication</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="ship.html">Drop Shipping</a>
+                            <a class="nav-link" href="{% url 'ship' %}">Drop Shipping</a>
                         </li>
                     </ul>
                       <a href="{% url 'contact' %}">  <button class="btn nav-btn my-2 my-sm-0" >Contact Us</button> </a>
@@ -93,9 +93,9 @@
           <img src="{% static 'assets/image/EmboldLabLogo.png' %}" class="img-fluid img-brand rounded-top" alt="EmboldLab Logo"/>
         </div>
           <div class="menu">
-            <a href="about.html">About</a>
+            <a href="{% url 'about_us' %}">About</a>
             <a href="https://boldkonnect.com">Telecommunication</a>
-            <a href="ship.html">Dropshipping</a>
+            <a href="{% url 'ship' %}">Dropshipping</a>
             <a href="#">Privacy Policy</a>
           </div>
         <div>
