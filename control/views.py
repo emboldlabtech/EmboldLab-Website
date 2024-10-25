@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404,redirect
 from .models import Category, Bootcamp,Registration,Blogpost,Student_project
-from .forms import RegistrationForm,BootcampRegistrationForm
+from .forms import RegistrationForm,Cohort3RegistrationForm
 from django.core.mail import EmailMessage
 from email.utils import formataddr
 from django.conf import settings
@@ -189,18 +189,60 @@ def register_for_course(request, bootcamp_slug):
     })
 
 
-
-
-def application_for_program(request):
+def register(request):
+    myKey = settings.PAY_KEY
     if request.method == 'POST':
-        form = BootcampRegistrationForm(request.POST, request.FILES)
+        form = Cohort3RegistrationForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
-            return redirect('success_page')  # Redirect to a success page after submission
-    else:
-        form = BootcampRegistrationForm()
+            # Save the registration form
+            registration = form.save()
 
-    return render(request, 'application.html', {'form': form})
+            # Get user details from the form
+            user_email = form.cleaned_data.get('email')
+            first_name = form.cleaned_data.get('first_name')
+
+            # Prepare email for the site owner
+            self_user_email_subject = "New Registration Received!"
+            self_user_email_body = render_to_string('new_registration.html', {
+                'registration': registration
+            })
+            my_email_message = EmailMessage(
+                self_user_email_subject,
+                self_user_email_body,
+                settings.EMAIL_HOST_USER,  # Replace with your from email
+                [settings.EMAIL_HOST_NAME],  # Replace with your notification email
+            )
+            my_email_message.content_subtype = "html"
+
+            # Prepare welcome email for the user
+            user_email_subject = "Welcome to the Cohort!"
+            user_email_body = render_to_string('welcome_email.html', {
+                'username': first_name,
+                'user_email': user_email
+            })
+            email_message = EmailMessage(
+                user_email_subject,
+                user_email_body,
+                settings.EMAIL_HOST_USER,  # Replace with your from email
+                [user_email]
+            )
+            email_message.content_subtype = "html"
+
+            try:
+                email_message.send()  # Send welcome email to the user
+                my_email_message.send()  # Send registration notification to admin
+                # Log email sending success
+                print(f"Emails successfully sent to {user_email} and admin.")
+            except Exception as e:
+                # Log email sending failure
+                print(f"Failed to send emails. Error: {e}")
+
+            # Redirect to success page after successful registration
+            return redirect('registration_success')  # Adjust to your success page URL name
+    else:
+        form = Cohort3RegistrationForm()
+
+    return render(request, 'application.html', {'form': form,  'myKey': myKey,})
 
 
 # def register_for_course(request, bootcamp_slug):

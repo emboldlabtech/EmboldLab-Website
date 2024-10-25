@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib import admin
 from django.utils.text import slugify
-from .models import Bootcamp,Category,Registration,Blogpost,BootcampRegistration
+from .models import Bootcamp,Category,Registration,Blogpost,Cohort3Registration
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
 
@@ -11,13 +11,29 @@ class BootcampForm(forms.ModelForm):
         exclude = ('slug', 'thumbnail', 'parent')
 
 
-class BootcampRegistrationForm(forms.ModelForm):
+class Cohort3RegistrationForm(forms.ModelForm):
     class Meta:
-        model = BootcampRegistration
+        model = Cohort3Registration
         fields = [
-            'name', 'email', 'phone', 'laptop_access', 'program', 'course',
-            'level', 'source', 'location', 'proof_of_payment', 'referral_code'
+            'name', 'email', 'phone', 'laptop', 'program', 'course',
+            'level', 'source', 'location', 'pledge_dedication', 'refer_code', 'course_price'
         ]
+        widgets = {
+            'course_price': forms.HiddenInput(),
+        }
+        labels = {
+            'name': 'Surname and First Name',
+            'email': 'Email',
+            'phone': 'WhatsApp Phone Number',
+            'laptop': 'Do you have access to a laptop?',
+            'program': 'What are you applying for?',
+            'course': 'Select Course',
+            'level': 'What do you see yourself as?',
+            'source': 'How did you hear about us?',
+            'location': 'Location',
+            'pledge_dedication': 'I pledge to make the most of this opportunity by dedicating myself wholeheartedly to my studies, attendance of all classes sessions and projects.',
+            'refer': 'Referral Code',
+        }
 
 class CategoryForm(forms.ModelForm):
     class Meta:

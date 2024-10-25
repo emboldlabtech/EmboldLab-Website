@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.contrib import admin
 from django.utils.text import slugify
 from .forms import BootcampForm,CategoryForm,RegistrationForm,BlogForm
-from .models import Blogpost,Student_project,Author
+from .models import Blogpost,Student_project,Author,Cohort3Registration
 def export_registrations_to_csv(modeladmin, request, queryset):
     import csv
     from django.http import HttpResponse
@@ -30,7 +30,7 @@ export_registrations_to_csv.short_description = 'Export selected registrations t
 
 # Register your models here.
 from .models import Bootcamp, Category, Registration
-admin.site.site_header = 'Embold Design Dashboard'
+admin.site.site_header = 'Embold Lab Dashboard'
 
 class BootcampAdmin(admin.ModelAdmin):
     list_display = ['title', 'category', 'price']
@@ -72,7 +72,10 @@ class ProductAdmin(admin.ModelAdmin):
         obj.slug = slugify(obj.title)
         obj.save()
 
+class Cohort3RegistrationAdmin(admin.ModelAdmin):
+    list_display = ('name', 'email', 'phone', 'program', 'course')
 
+admin.site.register(Cohort3Registration, Cohort3RegistrationAdmin)
 admin.site.register(Blogpost, ProductAdmin)
 admin.site.register(Student_project)
 admin.site.register(Author)

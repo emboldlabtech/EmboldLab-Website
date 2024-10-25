@@ -246,42 +246,39 @@ class Student_project(models.Model):
     def __str__(self):
         return self.title
 
+# models.py
+from django.db import models
 
-
-
-class BootcampRegistration(models.Model):
-    PROGRAM_CHOICES = [
+class Cohort3Registration(models.Model):
+    name = models.CharField(max_length=255)
+    email = models.EmailField()
+    phone = models.CharField(max_length=20)
+    laptop = models.CharField(max_length=3, choices=[('Yes', 'Yes'), ('No', 'No')])
+    program = models.CharField(max_length=50, choices=[
         ('Bootcamp', 'Bootcamp'),
         ('Accelerator', 'Accelerator Program'),
-        ('Masterclass', 'Masterclass'),
-    ]
-
-    LEVEL_CHOICES = [
+        ('Masterclass', 'Masterclass')
+    ])
+    course = models.CharField(max_length=100)
+    level = models.CharField(max_length=50, choices=[
         ('Fresher', 'Fresher'),
         ('Beginner', 'Beginner'),
         ('Intermediate', 'Intermediate'),
-        ('Advanced', 'Advanced'),
-    ]
-
-    SOURCE_CHOICES = [
+        ('Advanced', 'Advanced')
+    ])
+    source = models.CharField(max_length=50, choices=[
         ('Twitter', 'Twitter'),
         ('Facebook', 'Facebook'),
         ('LinkedIn', 'LinkedIn'),
         ('Referral', 'Referral'),
-        ('NAUS', 'NAUS'),
-    ]
-
-    name = models.CharField(max_length=255)
-    email = models.EmailField()
-    phone = models.CharField(max_length=20)
-    laptop_access = models.CharField(max_length=3, choices=[('Yes', 'Yes'), ('No', 'No')])
-    program = models.CharField(max_length=20, choices=PROGRAM_CHOICES)
-    course = models.CharField(max_length=50)
-    level = models.CharField(max_length=20, choices=LEVEL_CHOICES)
-    source = models.CharField(max_length=20, choices=SOURCE_CHOICES)
+        ('NAUS', 'NAUS')
+    ])
     location = models.TextField()
-    proof_of_payment = models.FileField(upload_to='payments/')
-    referral_code = models.CharField(max_length=50, blank=True, null=True)
+    pledge_dedication = models.BooleanField(default='True',blank=False, null=False)
+    course_price = models.DecimalField(max_digits=10, decimal_places=2, default=30000)
+    date_registered = models.DateTimeField(auto_now_add=True)
+
+    refer_code = models.CharField(max_length=50, blank=True, null=True)
 
     def __str__(self):
-        return f'{self.name} - {self.program}'
+        return f"{self.name} - {self.program}"

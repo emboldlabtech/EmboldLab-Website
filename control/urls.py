@@ -14,7 +14,7 @@ urlpatterns = [
     #path('categories/<slug:category_slug>/', views.category_detail, name='category_detail'),
     path('<slug:category_slug>/<slug:bootcamp_slug>/', views.bootcamp_detail, name='bootcamp_detail'),
     path('success/', views.success_page, name='success_page'),
-    path('register-for-cohort/', views.application_for_program, name='application'),
+    path('register-for-cohort/', views.register, name='application'),
 
     path('blog/', views.blog, name='blog'),
     path('contact-us/', views.contact_page, name='contact'),
