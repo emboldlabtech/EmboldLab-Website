@@ -67,7 +67,7 @@
                     <div class="row">
                         {% for popular_post in popular_posts %}
                         <div class="col-lg-12">
-                            <div class="h-100 side-blog-post-card">
+                            <div class="side-blog-post-card">
                                 <div class="card-pinned">
                                     <a href="{% url 'posts' slug=popular_post.slug %}">
                                         <img src="{{ popular_post.Cover_image.url }}" class="img-fluid rounded-top" alt="{{ popular_post.title }}" />
