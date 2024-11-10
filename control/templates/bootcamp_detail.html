@@ -37,7 +37,7 @@
                 <img src="{{ bootcamp.image.url }}" class="card-img-top" alt="...">
                 <div class="card-body" style="margin-top: 20px;">
                   <div><span style="background: #e3811d; color: white; padding: 5px;  border-radius: 10px;">95% free Scholarship</span></div>
-                  <div style="display: inline-flex; margin-top: 10px; margin-bottom: 10px;"><del>₦{{ bootcamp.former_price|floatformat:0 }}</del><h3 class="card-subtitle mb-2">₦{{ bootcamp.price|floatformat:0 }}</h3></div>
+                  <div style="display: inline-flex; margin-top: 10px; margin-bottom: 10px;"><del>{{ bootcamp.former_price|floatformat:0 }}</del><h3 class="card-subtitle mb-2">₦{{ bootcamp.price|floatformat:0 }}</h3></div>
                   <div class="d-grid gap-2">
                     <button type="button" name="" id="" class="btn"><a  class="btn" style="color: #fff;" href="{% url 'register_for_course' bootcamp.slug %}"  >Enroll Now</a></button>
                   </div>

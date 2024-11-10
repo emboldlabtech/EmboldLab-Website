@@ -53,6 +53,7 @@ class Bootcamp(models.Model):
     former_price= models.FloatField(blank=True, null=True)
     is_featured = models.BooleanField(default=False)
     is_masterclass = models.BooleanField(default=False)
+    is_accelerator = models.BooleanField(default=False)
     start_date = models.DateField(blank=True, null=True)
     end_date = models.DateField(blank=True, null=True)
     date_added = models.DateTimeField(auto_now_add=True)

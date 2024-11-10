@@ -5,9 +5,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emboldlab</title>
+    <title>Emboldlab || Empowering Your Digital Journey: Turning Ideas into Successful Enterprises with Product Design & Development</title>
 
 
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&display=swap" />
   	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" />
@@ -57,6 +58,59 @@
                                 </a
                             >
                         </li>
+                                            <!-- Dropdown for Courses -->
+
+                    <li class="nav-item dropdown">
+
+                        <a
+
+                            class="nav-link dropdown-toggle"
+
+                            href="#"
+
+                            id="coursesDropdown"
+
+                            role="button"
+
+                            data-bs-toggle="dropdown"
+
+                            aria-expanded="false"
+
+                        >
+
+                          <i class="fa fa-book"></i>  Training
+
+                        </a>
+
+                        <ul class="dropdown-menu" aria-labelledby="coursesDropdown">
+
+                            <!-- Bootcamp Dropdown -->
+
+                            <li class="dropdown-submenu">
+
+                                <a class="dropdown-item" href="{% url 'bootcamp_list' %}">Bootcamp</a>
+
+                            </li>
+
+                            <!-- Accelerator Program Dropdown -->
+
+                            <li class="dropdown-submenu">
+
+                                <a class="dropdown-item" href="{% url 'masterclass' %}">Masterclass</a>
+
+                            </li>
+
+                            <!-- Masterclass Dropdown -->
+
+                            <li class="dropdown-submenu">
+
+                                <a class="dropdown-item" href="{% url 'accelerator' %}">Accelerator Program</a>
+
+                            </li>
+
+                        </ul>
+
+                    </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'services' %}">Services</a>
                         </li>
@@ -121,6 +175,13 @@
         </div>
       </div>
   </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<!-- JavaScript -->
+<script src="{% static 'assets/js/index.js' %}"></script>
     <script
             src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
             integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"

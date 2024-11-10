@@ -1,0 +1,350 @@
+:root {
+    --white: #ffffff;
+    --black: #000000;
+    --orange: #e3811d;
+    --lsorange: #fff2e5;
+    --lorange: #fccc60;
+    --purple: #890fcc;
+    --lpurple: #8378f8;
+    --gredient: linear-gradient(to right,  var(--lsorange) 20%, #890FCC 750%, #8378F8 100%);
+    --grey: #b3b1b1;
+  }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #f8f9fa;
+}
+
+header {
+    margin-bottom: 20px;
+}
+.profile form {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.profile form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    border: 1px solid #ced4da;
+}
+
+.profile form button {
+    background-color: var(--orange);
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.profile form button:hover {
+    background-color: var(--lorange);
+}
+
+/* Messages Section */
+.messages .message-box {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.messages .message-box h4 {
+    margin-bottom: 8px;
+}
+
+.messages .message-box p {
+    margin-bottom: 5px;
+}
+
+.messages .message-time {
+    font-size: 12px;
+    color: #6c757d;
+}
+
+.send-message {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.send-message form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.send-message form select,
+.send-message form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    border: 1px solid #ced4da;
+}
+
+.send-message form button {
+    background-color: var(--orange);
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.send-message form button:hover {
+    background-color: var(--lorange);
+}
+
+/*Dashboard*/
+
+.courses, .assignments, .progress-report {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.courses h3, .assignments h3, .progress-report h3 {
+    margin-bottom: 15px;
+}
+
+.course-box {
+    margin-bottom: 15px;
+}
+
+.course-box h4 {
+    margin-bottom: 5px;
+}
+
+.assignments ul {
+    list-style-type: none;
+}
+
+.assignments ul li {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.progress-report p {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #6c757d;
+}
+.footer{
+  border-top: 1px solid var(--black);
+  text-align: center;
+  padding-top: 20px;
+}
+.footer .foot-social{
+  text-align: center;
+}
+.footer .foot-social a:hover{
+  background: var(--lorange);
+}
+.footer .foot-social a{
+  font-size: 20px;
+  text-decoration: none;
+  border: 1px solid;
+  padding: 10px;
+  border-radius: 100%;
+  margin: 30px 0px;
+}
+.footer .foot-social a:nth-child(1){
+  color: blue;
+  border-color: blue;
+}
+.footer .foot-social a:nth-child(2){
+  color: red;
+  border-color: red;
+}
+.footer .foot-social a:nth-child(3){
+  color: #4879ea;
+  border-color: #4879ea;
+}
+.footer .foot-social a:nth-child(4){
+  color: blue;
+  border-color: blue;
+}
+.com a{
+  text-decoration: none;
+  color: white;
+}
+.com{
+  text-align: right;
+  position: fixed;
+  right: 10px;
+  bottom: 50px;
+  background: #4879ea;
+  padding: 10px;
+  border-radius: 50px;
+}
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#profile-image-container {
+    margin-bottom: 20px;
+    border: 1px solid var(--lorange);
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#profile-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+#drop-area {
+    border: 2px dashed #ccc;
+    text-align: center;
+    margin-bottom: 60px;
+    width: 170px;
+    cursor: pointer;
+    color: #aaa;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+#drop-area:hover {
+    border-color: #694848;
+    color: #333;
+}
+
+#uploadBtn {
+    margin-top: 20px;
+    background: #ebeaea;
+    border: 1px outset black;
+    padding: 8px;
+    border-radius: 0;
+    color: black;
+    font-weight: normal;
+}
+
+
+      .progress-circle {
+        position: relative;
+        width: 150px;
+        height: 150px;
+        margin-bottom: 20px;
+      }
+
+      .circular-chart {
+        display: block;
+        max-width: 100%;
+        max-height: 100%;
+      }
+
+      .circle-bg {
+        fill: none;
+        stroke: #eee;
+        stroke-width: 3.8;
+      }
+
+      .circle {
+        fill: none;
+        stroke-width: 2.8;
+        stroke: var(--purple);
+        stroke-linecap: round;
+        transition: stroke-dashoffset 0.35s;
+        transform: rotate(-90deg);
+        transform-origin: 50% 50%;
+        stroke-dasharray: 100;
+        stroke-dashoffset: 100;
+      }
+
+      .progress-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      .upbtn {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s;
+      }
+
+      .upbtn:hover {
+        background-color: #0056b3;
+      }
+
+      .pro-container {
+        flex-direction: column;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .disabled-btn {
+            background: gray;
+            cursor: not-allowed;
+            padding: 10px 20px;
+            color: var(--white);
+            border: 1px solid var(--black);
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .enabled-btn {
+            background: #007bff;
+            cursor: pointer;
+            padding: 10px 20px;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }

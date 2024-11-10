@@ -24,7 +24,7 @@
         background-position: center;
         background-repeat: no-repeat;
         background-size:cover;
-        width: 450px;
+        width: 100%;
         color:white;
         text-align:center;
     }
@@ -107,15 +107,18 @@
         justify-content: center;
         margin: 60px 0px;
     }
-    input[type=submit]{
+    .btn:hover, input[type=submit]:hover{
+        background: var(--primary-button-color);
+        color: aliceblue;
+    }
+    .form-botton input[type=submit]{
         background: var(--primary-button-color);
         color: white;
         border:none;
         padding: 10px 60px;
-        font-size: 25px;
+        font-size: 20px;
         border-radius:20px;
     }
-
     .operating-button{
         display: flex;
         flex-direction: column;
@@ -418,10 +421,16 @@ position:absolute;
 top: 23px;
 bottom: 5px;
 right: 26px;
-width: 110px;
+width: 90px;
 height: 59px;
 flex-shrink: 0;
 z-index: 10;
+background: var(--primary-button-color);
+color: white;
+border:none;
+padding: 10px 0px;
+font-size: 20px;
+border-radius:20px;
 }
 
 .blog-stay-connect-bottom .right form{

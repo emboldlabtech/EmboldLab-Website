@@ -26,6 +26,7 @@ body {
   padding: 0;
   overflow-x: hidden;
   scroll-behavior: smooth;
+  font-family: "Barlow";
 }
 h2,h3,h4{
   font-family: "Barlow";
@@ -41,6 +42,9 @@ button{
   font-family: "Barlow";
   font-weight: 400;
   font-style: normal;
+}
+input, select, textarea{
+  outline: none;
 }
 .img-brand {
   object-fit: cover;
@@ -239,12 +243,13 @@ button{
 .service-card button {
     background: var(--orange);
     color: var(--white);
+    width: 100%;
 }
 .service-card p{
   line-height: 1;
 }
 .service-card {
-    padding-bottom: 20px;
+    padding: 20px;
 }
 .service-body{
   justify-content: center;
@@ -825,7 +830,7 @@ border-radius: 10px;
         }
 
         /* Custom styles for checkboxes and radio buttons */
-        .form-container input[type="radio"] {
+        .form-container input[type="radio"], input[type="checkbox"] {
             appearance: none;
             background-color: #fff;
             margin: 0;
@@ -840,12 +845,12 @@ border-radius: 10px;
             margin-right: 10px;
         }
 
-        .form-container input[type="radio"]:checked {
+        .form-container input[type="radio"]:checked, input[type="checkbox"]:checked {
             background-color: var(--orange);
             border-color: var(--orange);
         }
 
-        .form-container input[type="radio"]:checked::after {
+        .form-container input[type="radio"]:checked::after, input[type="checkbox"]:checked::after {
             content: '';
             width: 10px;
             height: 10px;
@@ -859,3 +864,62 @@ border-radius: 10px;
           text-align: center;
           margin-bottom: 20px;
         }
+
+
+
+
+         /* Styling for course categories */
+    .courses-section {
+      position: relative;
+  }
+
+  .course-categories {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #fff;
+      padding: 1rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      width: max-content;
+  }
+
+  .course-category {
+      margin-bottom: 1rem;
+  }
+
+  .category-title {
+      font-weight: bold;
+      color: #333;
+      display: block;
+  }
+
+  .course-links a {
+      display: block;
+      padding: 0.2rem 0;
+      color: #007bff;
+      text-decoration: none;
+  }
+
+  .course-links a:hover {
+      text-decoration: underline;
+  }
+
+  /* Show the course categories on hover */
+  .courses-section:hover .course-categories {
+      display: block;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 991px) {
+      .course-categories {
+          position: static;
+          box-shadow: none;
+          width: 100%;
+      }
+
+      .course-category {
+          margin-bottom: 0.5rem;
+      }
+  }

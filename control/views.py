@@ -13,6 +13,7 @@ def home(request):
     # Query to get only the featured bootcamps
     featured_bootcamps = Bootcamp.objects.filter(is_featured=True)
     masterclass_bootcamps = Bootcamp.objects.filter(is_masterclass=True)
+    accelerator_bootcamps = Bootcamp.objects.filter(is_accelerator=True)
     categories = Category.objects.all()
     projects = Student_project.objects.all()
 
@@ -24,18 +25,42 @@ def home(request):
     return render(request, 'index.html', {
         'featured_bootcamps': featured_bootcamps,
         'masterclass_bootcamps': masterclass_bootcamps,
+        'accelerator_bootcamps': accelerator_bootcamps,
         'categorized_bootcamps': categorized_bootcamps,
         'projects': projects
     })
 # View to list all bootcamps
 def bootcamp_list(request):
-    bootcamps = Bootcamp.objects.all()
+    bootcamps = Bootcamp.objects.filter(is_featured=True)
     categories = Category.objects.all()
     categorized_bootcamps = [
         (category, Bootcamp.objects.filter(category=category)) for category in categories
     ]
 
     return render(request, 'all_bootcamps.html', {'bootcamps': bootcamps, 'categorized_bootcamps': categorized_bootcamps, 'categories': categories})
+
+
+
+
+def masterclass_list(request):
+    bootcamps = Bootcamp.objects.filter(is_masterclass=True)
+    categories = Category.objects.all()
+    categorized_bootcamps = [
+        (category, Bootcamp.objects.filter(category=category)) for category in categories
+    ]
+
+    return render(request, 'masterclass.html', {'bootcamps': bootcamps, 'categorized_bootcamps': categorized_bootcamps, 'categories': categories})
+
+
+
+def accelerator_list(request):
+    bootcamps = Bootcamp.objects.filter(is_accelerator=True)
+    categories = Category.objects.all()
+    categorized_bootcamps = [
+        (category, Bootcamp.objects.filter(category=category)) for category in categories
+    ]
+
+    return render(request, 'accelerator.html', {'bootcamps': bootcamps, 'categorized_bootcamps': categorized_bootcamps, 'categories': categories})
 
 
 
