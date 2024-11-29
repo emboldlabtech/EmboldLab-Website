@@ -1,0 +1,24 @@
+/* Google Fonts - Barlow */
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+    --primary-button-color:#e3811d;
+    --light-orange:#fff2e5;
+    --gradient-purple:#890fcc;
+    --grey-color:rgb(161, 161, 161);
+    --deepgrey-color:rgb(59, 59, 59);
+    --lightgray-color:rgb(218, 218, 218);
+}
+
+.h2-text-design{
+    font-family: "Barlow";
+    font-weight: 500;
+    color:var(--deepgrey-color);
+    font-size: 40px;
+}
+
+.h6-text-design{
+    color:var(--grey-color);
+    font-size: 20px;
+}

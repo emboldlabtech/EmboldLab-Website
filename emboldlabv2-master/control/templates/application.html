@@ -1,0 +1,257 @@
+
+{% extends 'base.html' %}
+{% load static %}
+ {% load crispy_forms_tags %}
+ {% load cloudinary %}
+
+ <!-- Title -->
+<title>{% block title %}  Registration Form  {% endblock %}-  Embold Lab || Empowering Your Digital Journey: Turning Ideas into Successful Enterprises with Product Design & Development</title>
+
+{% block head %}
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&display=swap" />
+  	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" />
+{% endblock %}
+
+{% block content %}
+
+
+<main>
+  <div class="form-container container">
+    <h1>Embold Learn & Earn Tech Bootcamp Cohort 3.0</h1>
+    <p>"Earn up to $50 - $150 Monthly while Learning Practical tech skills with Embold. Participant are to pay the sum of N5,000 for certification, portfolio development, mentorship, accelerator scheme, design/coding challenge, CV revamping, internship opportunities and job search."</p>
+    <h2>PAYMENT VALIDATE ACCESS TO THE BOOTCAMP </h2>
+    <p>Only applicants who made payment would be reached out via email to join the bootcamp.</p>
+
+    <form id="registrationForm" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+
+      {{ form.name.label_tag }}<span class="req">*</span>
+      {{ form.name }}
+
+      {{ form.email.label_tag }}<span class="req">*</span>
+      {{ form.email }}
+
+      {{ form.phone.label_tag }}<span class="req">*</span>
+      {{ form.phone }}
+
+      {{ form.laptop.label_tag }}<span class="req">*</span>
+      <div class="radio-block">{{ form.laptop }}</div>
+
+      {{ form.program.label_tag }}<span class="req">*</span>
+      {{ form.program }}
+
+<!-- Bootcamp Courses -->
+<div id="bootcampCourses" class="course-options" style="display:none;">
+    <label>Select Bootcamp Courses:</label>
+    <div class="radio-block">
+        <input type="radio" value="Web Design/Development"> Web Design/Development
+    </div>
+    <div class="radio-block">
+        <input type="radio" value="Data Analysis"> Data Analysis
+    </div>
+    <div class="radio-block">
+        <input type="radio" value="UI/UX Product Design"> UI/UX Product Design
+    </div>
+    <div class="radio-block">
+        <input type="radio" value="Digital Marketing/Content Creation"> Digital Marketing/Content Creation
+    </div>
+    <div class="radio-block">
+        <input type="radio" value="Graphic Design"> Graphic Design
+    </div>
+</div>
+
+<!-- Accelerator Program Courses -->
+<div id="acceleratorCourses" class="course-options" style="display:none;">
+    <label>Select Accelerator Program Courses:</label>
+    <div class="radio-block">
+        <input type="radio" value="Software Development"> Software Development
+    </div>
+    <div class="radio-block">
+        <input type="radio" value="Product Management"> Product Management
+    </div>
+    <div class="radio-block">
+        <input type="radio" value="Data Science"> Data Science
+    </div>
+    <div class="radio-block">
+        <input type="radio" value="Data Engineering"> Data Engineering
+    </div>
+    <div class="radio-block">
+        <input type="radio" value="Digital Expert"> Digital Expert
+    </div>
+    <div class="radio-block">
+        <input type="radio" value="Creative Designer"> Creative Designer
+    </div>
+    <div class="radio-block">
+        <input type="radio" value="Agile/Scrum & UX Design"> Agile/Scrum & UX Design
+    </div>
+</div>
+
+<!-- Masterclass Courses -->
+<div id="masterclassCourses" class="course-options" style="display:none;">
+    <label>Select Masterclass Courses:</label>
+    <div class="radio-block">
+        <input type="radio" value="Front End Engineer"> Front End Engineer
+    </div>
+    <div class="radio-block">
+        <input type="radio" value="Back End Engineer"> Back End Engineer
+    </div>
+    <div class="radio-block">
+        <input type="radio" value="Data Science"> Data Science
+    </div>
+    <div class="radio-block">
+        <input type="radio" value="Business Intelligence Analyst"> Business Intelligence Analyst
+    </div>
+    <div class="radio-block">
+        <input type="radio" value="Product Developer"> Product Developer
+    </div>
+    <div class="radio-block">
+        <input type="radio" value="Digital Content Creator"> Digital Content Creator
+    </div>
+</div>
+
+      {{ form.level.label_tag }}<span class="req">*</span>
+      <div class="radio-block">{{ form.level }}</div>
+
+      {{ form.source.label_tag }}<span class="req">*</span>
+      <div class="radio-block">{{ form.source }}</div>
+
+      {{ form.location.label_tag }}<span class="req">*</span>
+      {{ form.location }}
+
+       {{ form.pledge_dedication}}
+ {{ form.pledge_dedication.label_tag }}
+
+
+      {{ form.refer.label_tag }}
+      {{ form.refer }}
+
+
+      {{ form.course_price }}
+
+     <p  style="color: red;">*Note: Please do not use the New Opay Payment option!</p>
+            <button type="submit" onclick="payWithPaystack()" class="btn btn-primary btn-lg text-center mb-7">Register And Make Payment</button>
+    </form>
+
+  </div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://js.paystack.co/v1/inline.js"></script>
+<script>
+    function showCourses() {
+        // Hide all course options initially
+        document.getElementById('bootcampCourses').style.display = 'none';
+        document.getElementById('acceleratorCourses').style.display = 'none';
+        document.getElementById('masterclassCourses').style.display = 'none';
+
+        // Get the selected program value
+        const program = document.getElementById('id_program').value;
+        let courseInputs;
+
+        // Show the relevant courses section based on the selected program
+        if (program === 'Bootcamp') {
+            document.getElementById('bootcampCourses').style.display = 'block';
+            courseInputs = document.querySelectorAll('#bootcampCourses input[type="radio"]');
+        } else if (program === 'Accelerator') {
+            document.getElementById('acceleratorCourses').style.display = 'block';
+            courseInputs = document.querySelectorAll('#acceleratorCourses input[type="radio"]');
+        } else if (program === 'Masterclass') {
+            document.getElementById('masterclassCourses').style.display = 'block';
+            courseInputs = document.querySelectorAll('#masterclassCourses input[type="radio"]');
+        }
+
+        // Update the name attribute for course options based on the selected program
+        if (courseInputs) {
+            courseInputs.forEach(input => {
+                input.name = program + '_course';
+            });
+        }
+    }
+
+    // Call showCourses immediately to set the initial display
+    showCourses();
+
+    // Add event listener to trigger showCourses on dropdown change
+    document.getElementById('id_program').addEventListener('change', showCourses);
+</script>
+
+<script>
+    // Bootstrap custom validation
+    (function () {
+        'use strict'
+        var forms = document.querySelectorAll('.needs-validation')
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+                    form.classList.add('was-validated')
+                }, false)
+            })
+    })();
+
+    // Handle form submission for payment
+    document.getElementById('registrationForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the form from submitting initially
+
+        const pledgeDedication = document.getElementById('id_pledge_dedication');
+        const pledgeTerms = document.getElementById('id_pledge_terms');
+        const email = document.getElementById('id_email').value;
+        const phone = document.getElementById('id_phone').value;
+        const amount = 30000 * 100; // Amount in kobo for Paystack (₦30,000)
+
+        // Check if pledge checkboxes are ticked
+        if (!pledgeDedication.checked || !pledgeTerms.checked) {
+            if (!pledgeDedication.checked) {
+                pledgeDedication.closest('.form-group').classList.add('was-validated');
+            }
+            if (!pledgeTerms.checked) {
+                pledgeTerms.closest('.form-group').classList.add('was-validated');
+            }
+            return;
+        }
+
+        // Trigger Paystack payment
+        payWithPaystack(email, amount, phone);
+    });
+
+    function payWithPaystack(email, amount, phone) {
+        var handler = PaystackPop.setup({
+            key: '{{myKey}}', // Replace with your actual Paystack public key
+            email: email,
+            amount: amount, // Amount in kobo
+            currency: "NGN",
+            ref: 'FTL_' + Math.floor((Math.random() * 1000000000) + 1), // Generate a unique reference
+            metadata: {
+                custom_fields: [
+                    {
+                        display_name: "Mobile Number",
+                        variable_name: "mobile_number",
+                        value: phone
+                    }
+                ]
+            },
+            callback: function(response) {
+                // Successful transaction callback
+                alert('Payment complete! Reference: ' + response.reference);
+                document.getElementById('registrationForm').submit(); // Submit form after payment
+            },
+            onClose: function() {
+                alert('Transaction was not completed, window closed.');
+            }
+        });
+        handler.openIframe();
+    }
+</script>
+
+
+
+
+{% endblock %}

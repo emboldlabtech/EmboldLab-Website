@@ -1,0 +1,102 @@
+
+{% extends 'base.html' %}
+{% load static %}
+ {% load crispy_forms_tags %}
+ {% load cloudinary %}
+
+ <!-- Title -->
+<title>{% block title %}  Profile  {% endblock %}-  Embold Lab || Empowering Your Digital Journey: Turning Ideas into Successful Enterprises with Product Design & Development</title>
+
+{% block head %}
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&display=swap" />
+  	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" />
+      <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+  />
+   <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+{% endblock %}
+{% block content %}
+<div class="main-content">
+    <header>
+        <h2>Messages</h2>
+        <p>Here are your conversations</p>
+    </header>
+
+    <!-- Received Messages -->
+    <section class="messages">
+        <h3>Received Messages</h3>
+        {% for message in received_messages %}
+            <div class="message-box">
+                <h4>{{ message.sender|capfirst }}</h4>
+                <p>{{ message.message }}</p>
+                <span class="message-time">{{ message.sent_at }}</span>
+            </div>
+        {% empty %}
+            <p>You have no received messages.</p>
+        {% endfor %}
+    </section>
+
+    <!-- Sent Messages -->
+    <section class="messages">
+        <h3>Sent Messages</h3>
+        {% for message in sent_messages %}
+            <div class="message-box">
+                <h4>To: {{ message.recipient.username }} </h4>
+                <p>{{ message.message }}</p>
+                <span class="message-time">{{ message.sent_at }}</span>
+            </div>
+        {% empty %}
+            <p>You have no sent messages.</p>
+        {% endfor %}
+    </section>
+
+    <!-- Send a New Message -->
+    <section class="send-message">
+        <h3>Send a Message</h3>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Send</button>
+        </form>
+
+        {% if form.errors %}
+            <div class="form-errors">
+                <p>There were errors with your submission:</p>
+                <ul>
+                    {% for field in form %}
+                        {% for error in field.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+    </section>
+</div>
+
+<style>/* messages.css */
+.message-box {
+    background-color: #f1f1f1;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+.message-time {
+    font-size: 0.8em;
+    color: gray;
+}
+
+.send-message form {
+    margin-top: 20px;
+}
+</style>
+
+
+{% endblock %}
