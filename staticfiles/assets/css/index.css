@@ -245,9 +245,9 @@ input, select, textarea{
     color: var(--white);
     width: 100%;
 }
-.service-card p{
+/* .service-card p{
   line-height: 1;
-}
+} */
 .service-card {
     padding: 20px;
 }
@@ -671,7 +671,6 @@ border-radius: 10px;
   padding-right: 30px;
 }
 .card-wrapper .description{
-  font-size: 14px;
   color: #707070;
   text-align: left;
 }

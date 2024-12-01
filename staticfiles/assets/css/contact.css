@@ -55,7 +55,7 @@ input{
     background: var(--lightgray-color);
     padding: 20px;
     margin:20px;
-
+    border-radius: 20px;
 }
 
 .name-email, .why-contact-flex{
@@ -105,7 +105,6 @@ input{
     border-width:0px 0px 2px 0px;
     border-style:solid;
     outline: none;
-    border-radius: 20px;
     outline: none;
 }
 

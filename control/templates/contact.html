@@ -44,16 +44,33 @@
             </div>
         </div>
         <div class="form-section container">
+        {% if messages %}
+                {% for message in messages %}
+                <div
+                  class="alert alert-primary alert-dismissible fade show"
+                  role="alert"
+                >
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="alert"
+                    aria-label="Close"
+                  ></button>
+                  {{ message }}
+                </div>
+                {% endfor %}
+        {% endif %}
             <form action="#" method="post">
+            {% csrf_token %}
                 <!---------- Name & Email section of form---------->
                 <div class="name-email">
                     <div class="name-form">
                         <label for="fName">Full Name</label>
-                        <input type="text" name="fName" id="fName" placeholder="Your name here">
+                        <input type="text" name="fName" id="fName" required placeholder="Your name here">
                     </div>
                     <div class="email-form">
-                        <label for="fEmail">Full Name</label>
-                        <input type="email" name="fEmail" id="fEmail" placeholder="Your email here">
+                        <label for="fEmail">Email Address</label>
+                        <input type="email" name="fEmail" id="fEmail" required placeholder="Your email here">
                     </div>
                 </div>
 
@@ -62,20 +79,20 @@
                     <h4 > Why are you contacting us?</h4>
                     <div class="why-contact-flex">
                         <div class="why-contact-left">
-                            <input type="checkbox" id="Bootcamp" name="Bootcamp" value="Bootcamp">
+                            <input type="radio" id="Bootcamp" name="reason" value="Bootcamp">
                             <label for="Bootcamp"> Bootcamp</label><br>
-                            <input type="checkbox" id="Masterclass" name="Masterclass" value="Masterclass">
+                            <input type="radio" id="Masterclass" name="reason" value="Masterclass">
                             <label for="Masterclass"> Masterclass</label><br>
-                            <input type="checkbox" id="Accelarator" name="Accelarator" value="Accelarator">
+                            <input type="radio" id="Accelarator" name="reason" value="Accelarator">
                             <label for="Accelarator"> Accelarator</label><br>
                         </div>
                         <div class="why-contact-left">
-                            <input type="checkbox" id="Services" name="Services" value="Services">
+                            <input type="radio" id="Services" name="reason" value="Services">
                             <label for="Services"> Services</label><br>
-                            <input type="checkbox" id="Telecommunications" name="Telecommunications"
+                            <input type="radio" id="Telecommunications" name="reason"
                                 value="Telecommunications">
                             <label for="Telecommunications">Telecommunications</label><br>
-                            <input type="checkbox" id="Drop Shipping" name="Drop Shipping" value="Drop Shipping">
+                            <input type="radio" id="Drop Shipping" name="reason" value="Drop Shipping">
                             <label for="Drop Shipping"> Drop Shipping</label><br>
                         </div>
                     </div>
@@ -83,7 +100,7 @@
                     <!---------- Your message form---------->
                     <div class="message">
                         <label for="fMessage">Your Message</label><br>
-                        <textarea name="fMessage" id="fMessage" cols="30" rows="10"></textarea>
+                        <textarea name="fMessage" id="fMessage" required cols="30" rows="10"></textarea>
                     </div>
 
                     <!---------- Submit button---------->
@@ -254,5 +271,10 @@
                 </div>
             </div>
         </div>
-
+                  <script>
+                  var alertList = document.querySelectorAll(".alert");
+                  alertList.forEach(function (alert) {
+                    new bootstrap.Alert(alert);
+                  });
+                </script>
 {% endblock %}

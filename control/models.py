@@ -312,3 +312,21 @@ class Message(models.Model):
 
     def __str__(self):
         return f"Message from {self.sender} to {self.recipient} on {self.sent_at}"
+
+
+
+class Contact(models.Model):
+    name = models.CharField()
+    email = models.CharField()
+    message = models.CharField()
+    reason = models.CharField(null=True, blank=True)
+    time = models.DateField(auto_now_add=True)
+    
+    def __str__(self):
+        return f"Contact from: {self.name} for {self.reason} at {self.time.strftime('%Y-%m-%d %H:%M:%S')}"
+
+class DropShipping(models.Model):
+    email = models.CharField()
+    time = models.DateField(auto_now_add=True)
+    def __str__(self):
+        return f"New dropshipping subscription from: {self.email} at {self.time.strftime('%Y-%m-%d %H:%M:%S')}"

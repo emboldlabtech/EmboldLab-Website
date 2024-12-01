@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.contrib import admin
 from django.utils.text import slugify
 from .forms import BootcampForm, CategoryForm, RegistrationForm, BlogForm
-from .models import Blogpost, Student_project, Author, Cohort3Registration, Bootcamp, Category, Registration, Message
+from .models import Blogpost, Student_project, Author, Cohort3Registration, Bootcamp, Category, Registration, Message, Contact, DropShipping
 
 def export_registrations_to_csv(modeladmin, request, queryset):
     response = HttpResponse(content_type='text/csv')
@@ -97,3 +97,5 @@ admin.site.register(Blogpost, BlogpostAdmin)
 admin.site.register(Student_project)  # Unrestricted access to Student_project
 admin.site.register(Author)  # Unrestricted access to Author
 admin.site.register(Cohort3Registration, Cohort3RegistrationAdmin)
+admin.site.register(Contact)
+admin.site.register(DropShipping)

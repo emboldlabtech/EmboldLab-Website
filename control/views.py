@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404,redirect
-from .models import Category, Bootcamp,Registration,Blogpost,Student_project
+from .models import Category, Bootcamp,Registration,Blogpost,Student_project, Contact, DropShipping
 from .forms import RegistrationForm,Cohort3RegistrationForm
 from django.core.mail import EmailMessage
 from email.utils import formataddr
@@ -582,6 +582,18 @@ def success_page(request):
     return render(request, 'success.html')
 
 def contact_page(request):
+    if request.method == "POST":
+        try:
+            new_contact = Contact(
+                name = request.POST.get("fName"),
+                email = request.POST.get("fEmail"),
+                reason = request.POST.get("reason"),
+                message = request.POST.get("fMessage")
+            )
+            new_contact.save()
+            messages.success(request, "Thank you for contacting us, we'll reach out to you shortly.")
+        except Exception as e:
+            print(f"An error occured: {e}")
     return render(request, 'contact.html')
 
 def service_page(request):
@@ -591,6 +603,12 @@ def work_page(request):
     projects = Student_project.objects.all()
     return render(request, 'work.html', {'projects': projects})
 def ship_page(request):
+    if request.method == "POST":
+        new_ship = DropShipping(
+            email=request.POST.get("email")
+        )
+        new_ship.save()
+        messages.success(request, "Thanks for subscribing to our dropshiping launch mail, we will notify you when we launch")
     return render(request, 'ship.html')
 
 def posts(request, slug):
