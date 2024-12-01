@@ -198,7 +198,7 @@ header {
   position: fixed;
   right: 10px;
   bottom: 50px;
-  background: #4879ea;
+  background: var(--purple);
   padding: 10px;
   border-radius: 50px;
   z-index: 10000;
