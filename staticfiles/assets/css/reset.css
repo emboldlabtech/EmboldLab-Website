@@ -13,12 +13,9 @@
 
 .h2-text-design{
     font-family: "Barlow";
-    font-weight: 500;
     color:var(--deepgrey-color);
-    font-size: 40px;
 }
 
 .h6-text-design{
     color:var(--grey-color);
-    font-size: 20px;
 }

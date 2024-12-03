@@ -13,7 +13,6 @@
 .card .body {
     color: #444;
     padding: 20px;
-    font-weight: 400;
 }
 .card .header {
     color: #444;
@@ -105,7 +104,6 @@
 }
 
 .single_post h3 {
-    font-size: 20px;
     text-transform: uppercase
 }
 
@@ -115,9 +113,7 @@
 }
 
 .single_post p {
-    font-size: 16px;
     line-height: 26px;
-    font-weight: 300;
     margin: 0
 }
 
@@ -214,13 +210,12 @@
     margin-bottom: none
 }
 
-.comment-reply li h5 {
+/* .comment-reply li h5 {
     font-size: 18px
-}
+} */
 
 .comment-reply li p {
     margin-bottom: 0px;
-    font-size: 15px;
     color: #777
 }
 
@@ -286,10 +281,8 @@
   border-radius: 4px;
 }
 .blog-grid .blog-img .date span {
-  font-size: 22px;
   display: block;
   line-height: 22px;
-  font-weight: 700;
 }
 .blog-grid .blog-img .date label {
   font-size: 14px;
@@ -299,8 +292,6 @@
   padding: 20px;
 }
 .blog-grid .blog-info h5 {
-  font-size: 22px;
-  font-weight: 700;
   margin: 0 0 10px;
 }
 .blog-grid .blog-info h5 a {
@@ -335,8 +326,6 @@
   border-bottom: 1px solid #eee;
 }
 .blog-aside .widget-title h3 {
-  font-size: 20px;
-  font-weight: 700;
   color: #e3811d;
   margin: 0;
 }
@@ -344,7 +333,6 @@
   margin-bottom: 15px;
 }
 .blog-aside .widget-author p {
-  font-size: 16px;
   margin: 0;
 }
 .blog-aside .widget-author .avatar {
@@ -354,9 +342,7 @@
   overflow: hidden;
 }
 .blog-aside .widget-author h6 {
-  font-weight: 600;
   color: #890fcc;
-  font-size: 22px;
   margin: 0;
   padding-left: 20px;
 }
@@ -367,16 +353,13 @@
   margin: 0;
 }
 .blog-aside .post-aside .post-aside-title a {
-  font-size: 18px;
   color: #890fcc;
-  font-weight: 600;
 }
 .blog-aside .post-aside .post-aside-meta {
   padding-bottom: 10px;
 }
 .blog-aside .post-aside .post-aside-meta a {
   color: #6F8BA4;
-  font-size: 12px;
   text-transform: uppercase;
   display: inline-block;
   margin-right: 10px;
@@ -397,15 +380,12 @@
 }
 .blog-aside .latest-post-aside .lpa-title h5 {
   margin: 0;
-  font-size: 15px;
 }
 .blog-aside .latest-post-aside .lpa-title a {
   color: #890fcc;
-  font-weight: 600;
 }
 .blog-aside .latest-post-aside .lpa-meta a {
   color: #6F8BA4;
-  font-size: 12px;
   text-transform: uppercase;
   display: inline-block;
   margin-right: 10px;
@@ -413,7 +393,6 @@
 
 .tag-cloud a {
   padding: 4px 15px;
-  font-size: 13px;
   color: #ffffff;
   background: #890fcc;
   border-radius: 3px;
@@ -441,8 +420,6 @@
   padding: 15px 0 20px;
 }
 .article .article-title h6 {
-  font-size: 14px;
-  font-weight: 700;
   margin-bottom: 20px;
 }
 .article .article-title h6 a {
@@ -452,7 +429,6 @@
 }
 .article .article-title h2 {
   color: #890fcc;
-  font-weight: 600;
 }
 .article .article-title .media {
   padding-top: 15px;
@@ -475,7 +451,6 @@
 }
 .article .article-title .media .media-body span {
   display: block;
-  font-size: 12px;
 }
 .article .article-content h1,
 .article .article-content h2,
@@ -484,7 +459,6 @@
 .article .article-content h5,
 .article .article-content h6 {
   color: #890fcc;
-  font-weight: 600;
   margin-bottom: 15px;
 }
 .article .article-content blockquote {
@@ -493,14 +467,11 @@
   margin: 0;
 }
 .article .article-content blockquote p {
-  font-size: 20px;
-  font-weight: 500;
   color: #e3811d;
   margin: 0;
 }
 .article .article-content blockquote .blockquote-footer {
   color: #890fcc;
-  font-size: 16px;
 }
 .article .article-content blockquote .blockquote-footer cite {
   font-weight: 600;
@@ -518,9 +489,7 @@
 }
 .article-comment h4 {
   color: #890fcc;
-  font-weight: 700;
   margin-bottom: 25px;
-  font-size: 22px;
 }
 img {
     max-width: 100%;
@@ -536,13 +505,10 @@ img {
   margin-bottom: 30px;
 }
 .contact-name h5 {
-  font-size: 22px;
   color: #890fcc;
   margin-bottom: 5px;
-  font-weight: 600;
 }
 .contact-name p {
-  font-size: 18px;
   margin: 0;
 }
 
@@ -592,9 +558,7 @@ img {
 }
 
 .section-title h2 {
-    font-weight: 700;
     color: #890fcc;
-    font-size: 45px;
     margin: 0 0 15px;
     border-left: 5px solid #e3811d;
     padding-left: 15px;

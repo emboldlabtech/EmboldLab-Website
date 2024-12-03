@@ -1,6 +1,7 @@
   /* Google Fonts - Barlow */
 
 @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 .main-container {
     box-sizing: border-box;
     font-family: "Barlow";
@@ -84,7 +85,6 @@ input{
 .why-contact-us{
     border-radius: 20px;
     padding: 50px;
-    font-size: 25px;
 }
 
 .why-contact-left{
@@ -177,14 +177,13 @@ input[type=submit]{
     margin:3px;
     background:var(--light-orange);
     color: orange;
-    font-size: 30px;
     padding: 15px;
     border-radius: 10px;
 }
 
-.stay-text h5{
+/* .stay-text h5{
     font-size: 25px;
-}
+} */
 
 /*---========== ACCORDANCE START HERE ============*/
 
@@ -219,7 +218,6 @@ input[type=submit]{
     background:var(--light-orange);
     text-align: center;
     padding: 20px;
-    font-size: 25px;
     margin: 20px;
 }
 
@@ -253,15 +251,12 @@ width: 70%;
 }
 
 .square-text h5{
-    font-size: 25px;
     font-family: "Barlow";
-    font-weight: 900;
     font-style: normal;
     color:var(--deepgrey-color);
 }
 
 .square-text h6{
-    font-size: 15px;
    margin-right: 60px;
 }
 
@@ -277,13 +272,11 @@ width: 70%;
 }
 
 .square-box-2 p{
-    font-size: 20px;
     font-family: "Barlow";
     font-style: normal;
 }
 .square-box-2 h6{
     background:var(--lightgray-color);
-    font-size: 20px;
     padding: 30px 15px;
     border-radius: 10px;
 }
@@ -321,7 +314,6 @@ width: 70%;
 
 .title-top h6{
     margin: 5px;
-    font-size: 15px;
 }
 
 .title-top h6:nth-child(2){
@@ -341,7 +333,6 @@ article{
 
 article b{
     color: var(--deepgrey-color);
-    font-size: 25px;
     line-height: 35px;
 }
 
@@ -366,13 +357,13 @@ article p{
     margin-bottom: 40px;
 }
 
-.blog-stay-connect-top h2, .blog-stay-connect-bottom h2{
+/* .blog-stay-connect-top h2, .blog-stay-connect-bottom h2{
     font-size: 30px;
-}
+} */
 
-.blog-stay-connect-top p, .blog-stay-connect-bottom p{
+/* .blog-stay-connect-top p, .blog-stay-connect-bottom p{
     font-size: 20px;
-}
+} */
 
 .blog-stay-connect-bottom{
     display:flex;
