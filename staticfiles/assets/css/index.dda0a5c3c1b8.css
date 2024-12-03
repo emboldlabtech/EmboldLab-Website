@@ -35,7 +35,7 @@ h2,h3,h4,h5{
   font-style: normal;
   font-weight: 600;
 }
-p, span{
+p{
   font-family: "Barlow";
   font-style: normal;
   font-weight: 500;
@@ -83,7 +83,7 @@ input, select, textarea{
 }
 .hero-section {
     position: relative;
-    background-image: url('/static/assets/image/cubic.png'); /* Set your image here */
+    background-image: url("/static/assets/image/cubic.c29821ad1d60.png"); /* Set your image here */
     background-size: cover; /* Ensure the image covers the entire section */
     background-position: center; /* Center the background image */
     background-repeat: no-repeat;

@@ -13,7 +13,9 @@
 
 /* Google Fonts - Barlow */
 @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
+*{
+  font-family: "Barlow";
+}
 a{
     text-decoration: none;
     font-family: "Barlow";
@@ -28,12 +30,12 @@ body {
   scroll-behavior: smooth;
   font-family: "Barlow";
 }
-h2,h3,h4{
+h2,h3,h4,h5{
   font-family: "Barlow";
   font-style: normal;
   font-weight: 600;
 }
-p{
+p, span{
   font-family: "Barlow";
   font-style: normal;
   font-weight: 500;
@@ -329,7 +331,7 @@ input, select, textarea{
 .contact{
     margin-top: 30px;
 }
-.contact-head h2, p{
+.contact-head h2, .contact-headp{
     margin-top: 20px;
 }
 .contact-head button{
@@ -670,8 +672,11 @@ border-radius: 10px;
   text-align: left;
   padding-right: 30px;
 }
+.card-wrapper .description span{
+  color: #000000;
+}
 .card-wrapper .description{
-  color: #707070;
+  color: #000000;
   text-align: left;
 }
 .card-wrapper .button{
