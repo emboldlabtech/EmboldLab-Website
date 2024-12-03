@@ -196,7 +196,7 @@
   padding-left: 8px;
 }
 .article .article-title .media .media-body label {
-  font-weight: 600;
+  /* font-weight: 600; */
   color: #fc5356;
   margin: 0;
 }
@@ -224,9 +224,9 @@
 .article .article-content blockquote .blockquote-footer {
   color: #20247b;
 }
-.article .article-content blockquote .blockquote-footer cite {
+/* .article .article-content blockquote .blockquote-footer cite {
   font-weight: 600;
-}
+} */
 .article .tag-cloud {
   padding-top: 10px;
 }

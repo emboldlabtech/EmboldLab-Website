@@ -20,7 +20,6 @@
 a{
     text-decoration: none;
     font-family: "Barlow";
-    font-weight: 500;
     font-style: normal;
 }
 body {
@@ -34,16 +33,16 @@ body {
 h1,h2,h3,h4,h5,h6{
   font-family: "Barlow";
   font-style: normal;
-  font-weight: 600;
+  /* font-weight: 600; */
 }
 p, span{
   font-family: "Barlow";
   font-style: normal;
-  font-weight: 500;
+  /* font-weight: 500; */
 }
 button{
   font-family: "Barlow";
-  font-weight: 400;
+  /* font-weight: 400; */
   font-style: normal;
 }
 input, select, textarea{
@@ -117,7 +116,7 @@ input, select, textarea{
   font-family: "Barlow";
   font-size: 30px;
   font-style: normal;
-  font-weight: 500;
+  /* font-weight: 500; */
   line-height: 18px; /* 120% */
 }
 .hero-count div span {
@@ -127,7 +126,7 @@ input, select, textarea{
   font-family: "Barlow";
   font-size: 15px;
   font-style: normal;
-  font-weight: 500;
+  /* font-weight: 500; */
   line-height: 18px; /* 140% */
 }
 .hero-count div img {
@@ -359,7 +358,7 @@ input, select, textarea{
 }
 .accordion-button {
   padding: 20px 25px;
-  font-weight: 600;
+  /* font-weight: 600; */
   color: #333;
   background-color: #ffffff;
   transition: all 0.3s ease;
@@ -680,7 +679,7 @@ border-radius: 10px;
 }
 .card-wrapper .button:hover{
   background: orange;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 .swiper-navBtn{
@@ -740,7 +739,7 @@ border-radius: 10px;
         .form-container p {
             text-align: left;
             margin-bottom: 20px;
-            font-weight: 400;
+            /* font-weight: 400; */
             color: #333;
             font-style: normal;
             font-family: "Barlow";
@@ -754,7 +753,7 @@ border-radius: 10px;
         }
 
         .form-container label {
-            font-weight: 600;
+            /* font-weight: 600; */
             margin-top: 10px;
             font-family: "Barlow";
             font-style: normal;
@@ -808,7 +807,7 @@ border-radius: 10px;
 
         .form-container .course-options label {
             display: block;
-            font-weight: 600;
+            /* font-weight: 600; */
             margin-bottom: 8px;
             font-family: "Barlow";
         }

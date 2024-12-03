@@ -35,7 +35,7 @@ header {
 .profile form label {
     display: block;
     margin-bottom: 8px;
-    font-weight: bold;
+    /* font-weight: bold; */
 }
 
 .profile form input {
@@ -91,7 +91,7 @@ header {
 .send-message form label {
     display: block;
     margin-bottom: 8px;
-    font-weight: bold;
+    /* font-weight: bold; */
 }
 
 .send-message form select,
@@ -261,7 +261,7 @@ header {
     padding: 8px;
     border-radius: 0;
     color: black;
-    font-weight: normal;
+    /* font-weight: normal; */
 }
 
 
@@ -302,7 +302,7 @@ header {
         left: 50%;
         transform: translate(-50%, -50%);
         font-size: 18px;
-        font-weight: bold;
+        /* font-weight: bold; */
       }
 
       .upbtn {
