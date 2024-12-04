@@ -30,7 +30,7 @@ import cloudinary.api
 SECRET_KEY = config('PINNA')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS = ['127.0.0.1','.vercel.app','emboldlab.com','www.emboldlab.com','aws-0-us-west-1.pooler.supabase.com']
 
 
