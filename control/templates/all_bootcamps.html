@@ -37,7 +37,7 @@
 {% endblock %}
 
 {% block content %}
-  <main>
+  <main class="overflow-hidden">
             <div class="container service">
                 <div class="text-dark text-center service-head" style="width: 100%; margin-bottom: 20px;">
                     <h2 class="h1">Bootcamps</h2>
@@ -47,7 +47,7 @@
 
                  {% for bootcamp in bootcamps %}
 
-                    <div class="card service-card shadow-sm">
+                    <div class="card service-card shadow-sm" data-aos="zoom-in">
                         <div class="image-content">
                           <span class="overlay"></span>
 

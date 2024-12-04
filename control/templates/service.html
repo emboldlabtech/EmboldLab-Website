@@ -23,7 +23,7 @@
 {% block content %}
 
 
-    <main>
+    <main class="overflow-hidden">
             <div class="container content-space-2 service">
                 <div class="row align-items-md-center mb-7 service-head">
                     <h2>Our Services</h2>
@@ -34,7 +34,7 @@
                     <span>Our Services Include:</span>
                 </div>
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 service-body">
-                  <div class="card card-bordered service-card">
+                  <div class="card card-bordered service-card" data-aos="zoom-in-down">
                     <div class="card-pinned">
                       <i class="fa fa-id-badge" aria-hidden="true"></i>
                     </div>
@@ -52,7 +52,7 @@
                       Learn More
                   </button>
                   </div>
-                  <div class="card card-bordered service-card">
+                  <div class="card card-bordered service-card" data-aos="zoom-in-down">
                     <div class="card-pinned">
                       <i class="fa fa-pencil" aria-hidden="true"></i>
                     </div>
@@ -70,7 +70,7 @@
                       Learn More
                   </button>
                   </div>
-                  <div class="card card-bordered service-card">
+                  <div class="card card-bordered service-card" data-aos="zoom-in-down">
                     <div class="card-pinned">
                       <i class="fa fa-briefcase" aria-hidden="true"></i>
                     </div>
@@ -88,7 +88,7 @@
                       Learn More
                   </button>
                   </div>
-                  <div class="card card-bordered service-card">
+                  <div class="card card-bordered service-card" data-aos="zoom-in-down">
                     <div class="card-pinned">
                       <i class="fa fa-coins" aria-hidden="true"></i>
                     </div>
@@ -106,7 +106,7 @@
                       Learn More
                   </button>
                   </div>
-                  <div class="card card-bordered service-card">
+                  <div class="card card-bordered service-card" data-aos="zoom-in-down">
                     <div class="card-pinned">
                       <i class="fa fa-building" aria-hidden="true"></i>
                     </div>
@@ -124,7 +124,7 @@
                       Learn More
                   </button>
                   </div>
-                  <div class="card card-bordered service-card">
+                  <div class="card card-bordered service-card" data-aos="zoom-in-down">
                     <div class="card-pinned">
                       <i class="fa fa-paint-brush" aria-hidden="true"></i>
                     </div>
@@ -146,10 +146,10 @@
                   </div>
         <div class="contact">
             <div class="contact-head">
-                <img src="{% static 'assets/image/EmboldLabLogo.png' %}"  alt="">
-                <h2>Thank You For Your Interest In Embold Lab</h2>
-                <p>We would love to hear from you and discuss how we can help bring your digital ideas to life. Here are the different ways you can get in touch with us.</p>
-                <a href="{% url 'contact' %}"><button type="button" class="btn">Start Project</button></a>
+                <img src="{% static 'assets/image/EmboldLabLogo.png' %}"  data-aos="fade-right" alt="">
+                <h2 data-aos="fade-left">Thank You For Your Interest In Embold Lab</h2>
+                <p data-aos="fade-right">We would love to hear from you and discuss how we can help bring your digital ideas to life. Here are the different ways you can get in touch with us.</p>
+                <a href="{% url 'contact' %}"><button type="button" data-aos="fade-left" class="btn">Start Project</button></a>
             </div>
         </div>
         </main>
