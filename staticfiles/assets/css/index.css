@@ -38,7 +38,7 @@ h1,h2,h3,h4,h5,h6{
 p, span{
   font-family: "Barlow";
   font-style: normal;
-  font-size: 0.9rem;
+  font-size: 1rem;
   /* font-weight: 500; */
 }
 button{
@@ -127,7 +127,7 @@ input, select, textarea{
   font-family: "Barlow";
   font-size: 15px;
   font-style: normal;
-  /* font-weight: 500; */
+  font-weight: 700;
   line-height: 18px; /* 140% */
 }
 .hero-count div img {

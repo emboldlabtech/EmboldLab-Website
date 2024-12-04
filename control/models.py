@@ -261,7 +261,7 @@ class Cohort3Registration(models.Model):
     course = models.CharField(max_length=100)
     level = models.CharField(max_length=50, choices=[('Fresher', 'Fresher'), ('Beginner', 'Beginner'), ('Intermediate', 'Intermediate'), ('Advanced', 'Advanced')])
     source = models.CharField(max_length=50, choices=[('Twitter', 'Twitter'), ('Facebook', 'Facebook'), ('LinkedIn', 'LinkedIn'), ('Referral', 'Referral'), ('NAUS', 'NAUS')])
-    location = models.TextField()
+    location = models.CharField(max_length=250)
     pledge_dedication = models.BooleanField(default=True)
     course_price = models.DecimalField(max_digits=10, decimal_places=2, default=30000)
     date_registered = models.DateTimeField(auto_now_add=True)
