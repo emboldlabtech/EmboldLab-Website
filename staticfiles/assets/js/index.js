@@ -50,3 +50,25 @@ let swiper = new Swiper(".slide-content", {
             document.getElementById("masterclassCourses").style.display = 'block';
         }
     }
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+        animateCounter(document.getElementById('students'), 2);
+        animateCounter(document.getElementById('projects'), 200);
+        animateCounter(document.getElementById('partners'), 5);
+    });
+
+    function animateCounter(element, target) {
+        let count = 0;
+        const duration = 2000; // Animation duration in milliseconds
+        const increment = target / (duration / 100); // Calculate the increment for each step
+
+        const counter = setInterval(() => {
+            count += increment;
+            if (count >= target) {
+                count = target;
+                clearInterval(counter);
+            }
+            element.textContent = Math.floor(count); // Update the number in the element
+        }, 100); // Interval of 100ms
+    }

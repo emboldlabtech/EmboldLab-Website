@@ -40,19 +40,20 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-7">
-                      <h2>Building Generations of Skilled</h2>
-                      <h2>Tech Professionals</h2>
+                      <h2>Building Generations</h2>
+                      <h2>of Skilled Tech</h2>
+                      <h2>Professionals</h2>
                       <p>Welcome to Embold Lab, where we blend transformative bootcamp training with specialized services to empower individuals and businesses to achieve excellence in their fields.</p>
                       <div class="hero-btn">
                         <a href="#courses"><button class="btn hero-btn1">Explore Courses</button></a>
 
 
 {% if user.is_authenticated %}
- <a href="{% url 'dashboard' %}"> <button class="btn hero-btn2">Register for Cohort 3.0</button></a>
+ <a href="{% url 'dashboard' %}"> <button class="btn hero-btn2">Dashboard</button></a>
 
 
 {% elif not user.is_authenticated %}
-  <a href="{% url 'access' %}"> <button class="btn hero-btn2">Register for Cohort 3.0</button></a>
+  <a href="{% url 'access' %}"> <button class="btn hero-btn2">Register for Cohort 4.0</button></a>
 
 {% endif %}
 
@@ -63,18 +64,18 @@
                     <div class="row hero-count">
                         <div class="col">
                               <img class="frame-child" alt="up" src="{% static 'assets/image/arrow-up-right-01.svg' %}">
-                              <p>500+</p>
+                              <p><b id="students">0</b>k+</p>
                               <span>Students Trained</span>
                         </div>
                         <div class="col">
                               <img class="frame-child" alt="up" src="{% static 'assets/image/arrow-up-right-01.svg' %}">
-                              <p>500+</p>
-                              <span>Students Trained</span>
+                              <p><b id="projects">0</b>+</p>
+                              <span>Projects Completed</span>
                         </div>
                         <div class="col">
                               <img class="frame-child" alt="up" src="{% static 'assets/image/arrow-up-right-01.svg' %}">
-                              <p>500+</p>
-                              <span>Students Trained</span>
+                              <p><b id="partners">0</b>+</p>
+                              <span>Our Global Partners</span>
                         </div>
                   </div>
                   </div>
