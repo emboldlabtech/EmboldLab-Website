@@ -70,5 +70,5 @@ let swiper = new Swiper(".slide-content", {
                 clearInterval(counter);
             }
             element.textContent = Math.floor(count); // Update the number in the element
-        }, 100); // Interval of 100ms
+        }, 1000); // Interval of 100ms
     }
