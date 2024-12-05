@@ -71,10 +71,10 @@ input, select, textarea{
   color: #585858;
   line-height: 30px; /* 150% */
 }
-.hero-section h2{
+/* .hero-section h2{
   font-size: 50px;
   line-height: 66px;
-}
+} */
 .hero-section {
     position: relative;
     background-image: url('/static/assets/image/cubic.png'); /* Set your image here */
