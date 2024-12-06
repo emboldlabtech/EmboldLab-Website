@@ -51,7 +51,7 @@
 
 {% endif %}
                   </div>
-                  <div style="text-align: center; margin-top: 20px;"><span>join the community.</span></div>
+                  <div style="text-align: center; margin-top: 20px;"><a href="https://t.me/+J7hvRc7mMjNlYTI0">join the community.</a></div>
                 </div>
               </div>
           </div>
@@ -63,6 +63,7 @@
                 </div>
                 <div class="course-body">
                     <h3>Course Content: </h3>
+                    <p> {{bootcamp.subdetail|safe}} </p>
 
                    <div class="accordion accordion-flush" id="accordionBootcampDetails">
     {% for title_attr, desc_attr in content_items %}
