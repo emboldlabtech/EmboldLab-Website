@@ -218,11 +218,12 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 465
+EMAIL_HOST = 'smtppro.zoho.com'
+EMAIL_PORT = 587
 EMAIL_USE_SSL = True
-DEFAULT_FROM_EMAIL = 'EMBOLD DESIGN <embolddesign@gmail.com>'
+DEFAULT_FROM_EMAIL = 'EMBOLD LAB <noreply@emboldlab.com>'
 EMAIL_HOST_USER =config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD=config("EMAIL_HOST_PASSWORD")
 EMAIL_HOST_NAME =config('EMAIL_HOST_NAME')
