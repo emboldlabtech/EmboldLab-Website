@@ -83,7 +83,7 @@
     <div class="blog-stay-connected container">
         <div class="blog-stay-connect-top">
             <h2>Sign Up to Our Newsletter</h2>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            {% comment %} <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p> {% endcomment %}
         </div>
         <div class="blog-stay-connect-bottom">
             <div class="left">
@@ -91,7 +91,8 @@
                 <p>Subscribe to receive the latest Tech news and updates. We promise not to spam you!</p>
             </div>
             <div class="right">
-                <form action="#" method="post">
+                <form action="" method="post">
+                {% csrf_token %}
                     <input type="email" name="fEmail" id="fEmail" placeholder="Enter email address" required>
                     <input type="submit" value="Continue">
                 </form>

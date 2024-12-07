@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404,redirect
-from .models import Category, Bootcamp,Registration,Blogpost,Student_project, Contact, DropShipping
+from .models import Category, Bootcamp,Registration,Blogpost,Student_project, Contact, DropShipping, Subscriber
 from .forms import RegistrationForm,Cohort3RegistrationForm
 from django.core.mail import EmailMessage
 from email.utils import formataddr
@@ -636,6 +636,12 @@ def posts(request, slug):
         }
     ]
 
+    if request.method == "POST":
+        new_sub = Subscriber(
+            email=request.POST.get("fEmail")
+        )
+        new_sub.save()
+        messages.success(request, "Thanks for subscribing to our newsletter!")
     # Create the context dictionary
     context = {
         "post": post,
@@ -644,7 +650,6 @@ def posts(request, slug):
         'categorized_bootcamps': categorized_bootcamps,
 
     }
-
     return render(request, 'blog_detail.html', context)
 
 def blog(request):
@@ -664,7 +669,12 @@ def blog(request):
         page = paginator.page(1)
     except EmptyPage:
         page = paginator.page(paginator.num_pages)
-
+    if request.method == "POST":
+        new_sub = Subscriber(
+            email=request.POST.get("fEmail")
+        )
+        new_sub.save()
+        messages.success(request, "Thanks for subscribing to our newsletter!")
     context = {
         'all_posts': page,
         'timezone': timezone,

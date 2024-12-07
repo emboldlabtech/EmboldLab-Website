@@ -173,7 +173,7 @@ input[type=submit]{
     margin-left: 30px;
 }
 
-.img-stay{
+.img-stay a{
     margin:3px;
     background:var(--light-orange);
     color: orange;

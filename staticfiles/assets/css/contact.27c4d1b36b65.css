@@ -17,7 +17,7 @@ input{
 }
 
 .contact-hero{
-    background: url(/static/assets/image/contacthero.webp);
+    background: url("/static/assets/image/contacthero.c6d37cb30534.webp");
     background-position: center;
     background-repeat: no-repeat;
     background-size:cover;

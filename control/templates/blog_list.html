@@ -152,6 +152,7 @@
                     </div>
                     <div class="right">
                         <form action="" method="post">
+                        {% csrf_token %}
                             <input type="email" name="fEmail" id="fEmail" placeholder="Enter email address">
                             <input type="submit" value="continue">
                         </form>

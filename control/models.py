@@ -331,3 +331,9 @@ class DropShipping(models.Model):
     time = models.DateTimeField(auto_now_add=True)
     def __str__(self):
         return f"New dropshipping subscription from: {self.email} at {self.time.strftime('%Y-%m-%d %H:%M:%S')}"
+
+class Subscriber(models.Model):
+    email = models.CharField(max_length=150)
+    time = models.DateTimeField(auto_now_add=True)
+    def __str__(self):
+        return f"New Subscriber subscription from: {self.email} at {self.time.strftime('%Y-%m-%d %H:%M:%S')}"
